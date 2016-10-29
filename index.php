@@ -29,6 +29,9 @@ $con = mysql_pconnect("localhost", "nitmaker_cn", "nitmaker.cn");
 foreach($_SESSION as $key=>$value){
     echo $key . "=>" . $value . "<br/>";
 }
+foreach($_POST as $key=>$value){
+    echo $key . "=>" . $value . "<br/>";
+}
 ?>
 <h1>Welcome to NITmaker</h1>
 <p>在此处登录账户</p>
