@@ -1,16 +1,17 @@
 <?php
-//设置session
-session_start();
-//定义session变量
-$_SESSION['fileName'] = "index.php";
-$_SESSION['trueName'] = "";
-$_SESSION['nickName'] = "nick_name";
-$_SESSION['sex'] = -1;
-$_SESSION['passwd'] = "password";
-$_SESSION['fullTellNumber'] = "";
-$_SESSION['shortTellNumber'] = "";
-$_SESSION['confirm'] = 0;
-
+if($_SESSION['isSet'] != "YES"){
+    //设置session
+    session_start();
+    //定义session变量
+    $_SESSION['isSet'] = "YES";
+    $_SESSION['trueName'] = "";
+    $_SESSION['nickName'] = "nick_name";
+    $_SESSION['sex'] = -1;
+    $_SESSION['passwd'] = "password";
+    $_SESSION['fullTellNumber'] = "";
+    $_SESSION['shortTellNumber'] = "";
+    $_SESSION['confirm'] = 0;
+}
 //连接数据库
 $con = mysql_pconnect("localhost", "nitmaker_cn", "nitmaker.cn");
 ?>
