@@ -24,8 +24,11 @@ $con = mysql_pconnect("localhost", "nitmaker_cn", "nitmaker.cn");
 <form method = "post" action = "<?php
 echo htmlspecialchars($_SERVER['PHP_SELF']);
 ?>">
-<input type = "submit" value = "Test">
+<table border = 1>
+<tr> <th>昵称</th> <td><input type = "text" name = "nickName" value = "nick_name"></td> </tr>
+<tr> <th>密码</th> <td><input type = "text" name = "passwd" value = "password"></td> </tr>
+<tr colspan = 2><input type = "submit" value = "登录"></tr>
+</table>
 </form>
-
 </body>
 </html>
