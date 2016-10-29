@@ -1,18 +1,20 @@
 <?php
 //设置session
-session_start();
-$_SESSION['state'] = "0";
-$_SESSION['nickName'] = "nick_name";
-$_SESSION['passwd'] = "password";
+if($_POST['state'] != "done"){
+    session_start();
+    $_SESSION['state'] = "0";
+    $_SESSION['nickName'] = "nick_name";
+    $_SESSION['passwd'] = "password";
+}
 //连接数据库
 $con = mysql_pconnect("localhost", "nitmaker_cn", "nitmaker.cn");
 ?>
 
 <?php
-if(!$_POST['nickName'])
+if($_POST['state'] == "done"){
     $_SESSION['nickName'] = htmlspecialchars(stripslashes(trim($_POST['nickName'])));
-if(!$_POST['passwd'])
     $_SESSION['passwd'] = htmlspecialchars(stripslashes(trim($_POST['passwd'])));
+}
 ?>
 
 <html>
@@ -34,6 +36,7 @@ echo htmlspecialchars($_SERVER['PHP_SELF']);
 <tr> <th>昵称</th> <td><input type = "text" name = "nickName" value = "<?php echo $_SESSION['nickName'];?>"></td> </tr>
 <tr> <th>密码</th> <td><input type = "password" name = "passwd" value = "<?php echo $_SESSION['passwd'];?>"></td> </tr>
 </table>
+<input type = "hidden" name = "state" value = "done">
 <input type = "submit" value = "登录">
 </form>
 </body>
