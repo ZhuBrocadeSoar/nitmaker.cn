@@ -17,10 +17,8 @@ $con = mysql_pconnect("localhost", "nitmaker_cn", "nitmaker.cn");
 ?>
 
 <?php
-//if($_SERVER['REQUEST_METHOD'] == "POST"){
-    $_SESSION['nickName'] = htmlspecialchars(stripslashes(trim($_POST['nickName'])));
-    $_SESSION['passwd'] = htmlspecialchars(stripslashes(trim($_POST['passwd'])));
-//}
+$_SESSION['nickName'] = htmlspecialchars(stripslashes(trim($_POST['nickName'])));
+$_SESSION['passwd'] = htmlspecialchars(stripslashes(trim($_POST['passwd'])));
 ?>
 
 <html>
@@ -39,7 +37,7 @@ foreach($_POST as $key=>$value){
 echo htmlspecialchars($_SERVER['PHP_SELF']);
 ?>">
 <table border = 1>
-<tr> <th>昵称</th> <td><input type = "text" name = "<?php echo $_SESSION['nickName'];?>" value = "nick_name"></td> </tr>
+<tr> <th>昵称</th> <td><input type = "text" name = "passwd" value = "<?php echo $_SESSION['nickName'];?>"></td> </tr>
 <tr> <th>密码</th> <td><input type = "password" name = "passwd" value = "<?php echo $_SESSION['passwd'];?>"></td> </tr>
 </table>
 <input type = "submit" value = "登录">
