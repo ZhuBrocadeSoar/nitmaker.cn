@@ -1,9 +1,8 @@
 <?php
-//if($_SESSION['isSet'] != "YES"){
 //设置session
 session_start();
 //定义session变量
-$_SESSION['isSet'] = "YES";
+$_SESSION['state'] = "0";
 $_SESSION['trueName'] = "";
 $_SESSION['nickName'] = "nick_name";
 $_SESSION['sex'] = -1;
@@ -11,14 +10,16 @@ $_SESSION['passwd'] = "password";
 $_SESSION['fullTellNumber'] = "";
 $_SESSION['shortTellNumber'] = "";
 $_SESSION['confirm'] = 0;
-//}
 //连接数据库
 $con = mysql_pconnect("localhost", "nitmaker_cn", "nitmaker.cn");
 ?>
 
 <?php
-$_SESSION['nickName'] = htmlspecialchars(stripslashes(trim($_POST['nickName'])));
-$_SESSION['passwd'] = htmlspecialchars(stripslashes(trim($_POST['passwd'])));
+if($_SESSION['state'] == "0"){
+    $_SESSION['nickName'] = htmlspecialchars(stripslashes(trim($_POST['nickName'])));
+    $_SESSION['passwd'] = htmlspecialchars(stripslashes(trim($_POST['passwd'])));
+    $_SESSION['state'] = 1;
+}
 ?>
 
 <html>
@@ -37,7 +38,7 @@ foreach($_POST as $key=>$value){
 echo htmlspecialchars($_SERVER['PHP_SELF']);
 ?>">
 <table border = 1>
-<tr> <th>昵称</th> <td><input type = "text" name = "passwd" value = "<?php echo $_SESSION['nickName'];?>"></td> </tr>
+<tr> <th>昵称</th> <td><input type = "text" name = "nickName" value = "<?php echo $_SESSION['nickName'];?>"></td> </tr>
 <tr> <th>密码</th> <td><input type = "password" name = "passwd" value = "<?php echo $_SESSION['passwd'];?>"></td> </tr>
 </table>
 <input type = "submit" value = "登录">
