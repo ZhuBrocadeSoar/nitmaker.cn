@@ -1,4 +1,5 @@
 <?php
+session_destroy();
 //设置session
 if($_POST['state'] != "done"){
     session_start();
