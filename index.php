@@ -9,7 +9,7 @@ if($_POST['state'] != "done"){
 //连接数据库
 $_SESSION['con'] = mysql_pconnect("localhost", "nitmaker_cn", "nitmaker.cn");
 ///////////////////////登录地址/////用户名/////////密码/////////
-mysql_select_db("nitmaker_cn");
+mysql_select_db("nitmaker_cn", $_SESSION['con']);
 /////////////////数据库名/////
 ?>
 
@@ -20,7 +20,7 @@ if($_POST['state'] == "done"){
 }
 
 if($_POST['state'] == "done"){
-    $result = mysql_query("SELECT id,nickName,passwd FROM userInfo WHERE nickName = " . $_SESSION['nickName']);
+    $result = mysql_query("SELECT id,nickName,passwd FROM userInfo WHERE nickName = " . $_SESSION['nickName'], $_SESSION['con']);
     if($row = mysql_fetch_array($result)){
         //匹配到nickName
         if($row['passwd'] == $_SESSION['passwd']){
