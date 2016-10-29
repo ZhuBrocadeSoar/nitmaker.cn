@@ -15,10 +15,10 @@ $con = mysql_pconnect("localhost", "nitmaker_cn", "nitmaker.cn");
 ?>
 
 <?php
-if($_SESSION['state'] == "0"){
+if($_SESSION['state'] != "0"){
     $_SESSION['nickName'] = htmlspecialchars(stripslashes(trim($_POST['nickName'])));
     $_SESSION['passwd'] = htmlspecialchars(stripslashes(trim($_POST['passwd'])));
-    $_SESSION['state'] = 1;
+    $_SESSION['state'] = "1";
 }
 ?>
 
