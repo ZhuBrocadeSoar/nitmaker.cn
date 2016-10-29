@@ -17,10 +17,10 @@ $con = mysql_pconnect("localhost", "nitmaker_cn", "nitmaker.cn");
 ?>
 
 <?php
-if($_SERVER['REQUEST_METHOD'] == "POST"){
+//if($_SERVER['REQUEST_METHOD'] == "POST"){
     $_SESSION['nickName'] = htmlspecialchars(stripslashes(trim($_POST['nickName'])));
     $_SESSION['passwd'] = htmlspecialchars(stripslashes(trim($_POST['passwd'])));
-}
+//}
 ?>
 
 <html>
