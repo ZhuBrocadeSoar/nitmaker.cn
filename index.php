@@ -62,7 +62,7 @@ echo htmlspecialchars($_SERVER['PHP_SELF']);
 ?>">
 <table border = 1>
 <tr> <th>昵称</th> <td><input type = "text" name = "nickName" value = "<?php echo $_SESSION['nickName'];?>"></td> </tr>
-<tr> <th>密码</th> <td><input type = "password" name = "passwd" value = "<?php echo $_SESSION['passwd'];?>"></td> </tr>
+<tr> <th>密码</th> <td><input type = "password" name = "passwd" value = "<?php echo sha1($_SESSION['passwd']);?>"></td> </tr>
 </table>
 <?php
 switch($_SESSION['machState']){
