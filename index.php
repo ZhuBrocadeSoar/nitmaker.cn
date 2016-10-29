@@ -35,7 +35,7 @@ if($_POST['state'] == "done"){
             $_SESSION['machState'] = "nickNameNotMach";
     }
 }
-echo "<table>";
+echo "<table border = 1>";
 foreach($_SESSION as $key=>$value){
     echo "<tr><th>$key</th><td>$value</td></tr>";
 }
