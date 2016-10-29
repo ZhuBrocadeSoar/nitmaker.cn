@@ -1,5 +1,5 @@
 <?php
-if($_SESSION['isSet'] != "YES"){
+//if($_SESSION['isSet'] != "YES"){
     //设置session
     session_start();
     //定义session变量
@@ -11,14 +11,14 @@ if($_SESSION['isSet'] != "YES"){
     $_SESSION['fullTellNumber'] = "";
     $_SESSION['shortTellNumber'] = "";
     $_SESSION['confirm'] = 0;
-}
+//}
 //连接数据库
 $con = mysql_pconnect("localhost", "nitmaker_cn", "nitmaker.cn");
 ?>
 
 <?php
 $_SESSION['nickName'] = htmlspecialchars(stripslashes(trim($_POST['nickName'])));
-$_SESSION['password'] = htmlspecialchars(stripslashes(trim($_POST['passwd'])));
+$_SESSION['passwd'] = htmlspecialchars(stripslashes(trim($_POST['passwd'])));
 
 ?>
 
