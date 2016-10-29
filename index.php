@@ -36,16 +36,16 @@ if($_POST['state'] == "done"){
     }
 }
 echo "<table border = 1>";
-echo "<tr><th>_SESSION</th><td>value</td></tr>";
+echo "<tr><th>_SESSION</th><th>value</th></tr>";
 foreach($_SESSION as $key=>$value){
     echo "<tr><th>$key</th><td>$value</td></tr>";
 }
-echo "<tr><th>_POST</th><td>value</td></tr>";
+echo "<tr><th>_POST</th><th>value</th></tr>";
 foreach($_POST as $key=>$value){
     echo "<tr><th>$key</th><td>$value</td></tr>";
 }
 echo "<tr><th>result</th><td>$result</td></tr>";
-echo "<tr><th>row</th><td>value</td></tr>";
+echo "<tr><th>row</th><th>value</th></tr>";
 foreach($row as $key=>$value){
     echo "<tr><th>$key</th><td>$value</td></tr>";
 }
