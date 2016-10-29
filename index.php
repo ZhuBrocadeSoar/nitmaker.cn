@@ -35,6 +35,7 @@ if($_POST['state'] == "done"){
             $_SESSION['machState'] = "nickNameNotMach";
     }
 }
+echo $_SESSION['machState'] . "<br/>";
 ?>
 
 <html>
