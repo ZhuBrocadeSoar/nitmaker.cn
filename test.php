@@ -1,5 +1,5 @@
 <?php
-$con = mysql_connect("123.206.204.23", "nitmaker_cn", "nitmaker.cn");
+$con = mysql_connect("localhost", "nitmaker_cn", "nitmaker.cn");
 if(!$con){
     die("Could not connect to mysql: " . mysql_error());
 }else{
