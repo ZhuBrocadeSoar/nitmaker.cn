@@ -24,7 +24,11 @@ $_SESSION['password'] = htmlspecialchars(stripslashes(trim($_POST['passwd'])));
 
 <html>
 <body>
-
+<?php
+foreach($_SESSION as $key=>$value){
+    echo "\t" . $key . "\t\t" . $value . "<br/>";
+}
+?>
 <h1>Welcome to NITmaker</h1>
 <p>在此处登录账户</p>
 <form method = "post" action = "<?php
