@@ -1,27 +1,18 @@
 <?php
-if($_SESSION['state'] == ""){
-    //设置session
-    session_start();
-    //定义session变量
-    $_SESSION['state'] = "0";
-    $_SESSION['trueName'] = "";
-    $_SESSION['nickName'] = "nick_name";
-    $_SESSION['sex'] = -1;
-    $_SESSION['passwd'] = "password";
-    $_SESSION['fullTellNumber'] = "";
-    $_SESSION['shortTellNumber'] = "";
-    $_SESSION['confirm'] = 0;
-}
+//设置session
+session_start();
+$_SESSION['state'] = "0";
+$_SESSION['nickName'] = "nick_name";
+$_SESSION['passwd'] = "password";
 //连接数据库
 $con = mysql_pconnect("localhost", "nitmaker_cn", "nitmaker.cn");
 ?>
 
 <?php
-if($_SESSION['state'] != "0"){
+if(!$_POST['nickName'])
     $_SESSION['nickName'] = htmlspecialchars(stripslashes(trim($_POST['nickName'])));
+if(!$_POST['passwd'])
     $_SESSION['passwd'] = htmlspecialchars(stripslashes(trim($_POST['passwd'])));
-    $_SESSION['state'] = "1";
-}
 ?>
 
 <html>
