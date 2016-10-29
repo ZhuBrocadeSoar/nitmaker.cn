@@ -20,7 +20,7 @@ if($_POST['state'] == "done"){
 }
 
 if($_POST['state'] == "done"){
-    $result = mysql_query("SELECT id,nickName,passwd FROM userInfo WHERE nickName = " . $_SESSION['nickName'], $_SESSION['con']);
+    $result = mysql_query("SELECT id,nickName,passwd FROM userInfo WHERE nickName = " . $_SESSION['nickName']);
     if($row = mysql_fetch_array($result)){
         //匹配到nickName
         if($row['passwd'] == $_SESSION['passwd']){
