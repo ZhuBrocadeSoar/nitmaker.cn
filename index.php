@@ -13,6 +13,9 @@ $_SESSION['confirm'] = 0;
 
 //连接数据库
 $con = mysql_pconnect("localhost", "nitmaker_cn", "nitmaker.cn");
+?>
+
+<?php
 $_SESSION['nickName'] = htmlspecialchars(stripslashes(trim($_POST['nickName'])));
 $_SESSION['password'] = htmlspecialchars(stripslashes(trim($_POST['passwd'])));
 
