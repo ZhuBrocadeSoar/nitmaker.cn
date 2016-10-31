@@ -14,6 +14,7 @@ $_SESSION['con'] = mysql_pconnect("localhost", "nitmaker_cn", "nitmaker.cn");
 <?php
 if($_POST['state'] == "done"){
     $_SESSION['nickName'] = htmlspecialchars(stripslashes(trim($_POST['nickName'])));
+    $_SESSION['nickName'] = $_POST['nickName'];
     $_SESSION['passwd'] = htmlspecialchars(stripslashes(trim($_POST['passwd'])));
 }
 
