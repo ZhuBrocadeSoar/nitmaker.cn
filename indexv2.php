@@ -1,5 +1,6 @@
 <?php
 
+session_start();
 echo "<table border = 1>";
 echo "<tr><th>_SESSION</th><th>value</th></tr>";
 foreach($_SESSION as $key=>$value){
@@ -48,7 +49,6 @@ if($_SESSION['submitCount']){
     }
 }else{
     //未提交任何表单，判定为第一次进入该站点
-    session_start();
     //记录访问时间;
     $_SESSION['accessTime'] = time();
     //第一次访问设定为第0次提交表单;
