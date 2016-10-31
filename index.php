@@ -66,6 +66,9 @@ echo htmlspecialchars($_SERVER['PHP_SELF']);
 <tr> <th>昵称</th> <td><input type = "text" name = "nickName" value = "<?php echo $_SESSION['nickName'];?>"></td> </tr>
 <tr> <th>密码</th> <td><input type = "password" name = "passwd" value = "<?php echo sha1($_SESSION['passwd']);?>"></td> </tr>
 </table>
+<input type = "hidden" name = "state" value = "done">
+<input type = "submit" value = "登录">
+</form>
 <?php
 switch($_SESSION['machState']){
 case "passwdNotMach":case "nickNameNotMach":
@@ -79,8 +82,5 @@ default:
     break;
 }
 ?>
-<input type = "hidden" name = "state" value = "done">
-<input type = "submit" value = "登录">
-</form>
 </body>
 </html>
