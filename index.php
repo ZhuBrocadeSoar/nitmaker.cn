@@ -76,7 +76,7 @@ case "passwdNotMach":case "nickNameNotMach":
     break;
 case "allMach":
     echo "登录成功，2秒后自动转跳到用户中心<br/>";
-    echo "<meta http-equiv = 'refresh' content = '2;url = http://123.206.204.23/nitmaker.cn/center.php'>";
+    echo "<meta http-equiv = \"refresh\" content = \"2;url = http://123.206.204.23/nitmaker.cn/center.php\">";
     break;
 default:
     break;
