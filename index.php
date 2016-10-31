@@ -22,11 +22,10 @@ if($_POST['state'] == "done"){
     mysql_select_db("nitmaker_cn", $_SESSION['con']);
     /////////////////数据库名/////
     $tmp = $_SESSION['nickName'];
-    echo "SELECT id,nickName,passwd FROM userInfo WHERE nickName = \"$tmp\"";
     $result = mysql_query("SELECT id,nickName,passwd FROM userInfo WHERE nickName = \"$tmp\"", $_SESSION['con']);
     if($row = mysql_fetch_array($result)){
         //匹配到nickName
-        if($row['passwd'] == $_SESSION['passwd']){
+        if($row['passwd'] == SHA1($_SESSION['passwd'])){
             //密码匹配
             $_SESSION['machState'] = "allMach";
         }else{
