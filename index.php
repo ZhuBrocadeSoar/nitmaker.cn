@@ -72,7 +72,7 @@ case "passwdNotMach":case "nickNameNotMach":
     echo "输入的信息不匹配，登录失败<br/>";
     break;
 case "allMach":
-    header("Location:http://nitmaker.cn/center.php");
+    header("location:http://nitmaker.cn/center.php");
     exit;
     break;
 }
