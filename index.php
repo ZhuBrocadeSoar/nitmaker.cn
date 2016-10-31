@@ -21,8 +21,8 @@ if($_POST['state'] == "done"){
     mysql_select_db("nitmaker_cn", $_SESSION['con']);
     /////////////////数据库名/////
     $tmp = $_SESSION['nickName'];
-    $tmp = "soar";
-    $result = mysql_query("SELECT id,nickName,passwd FROM userInfo WHERE nickName = 'soar'", $_SESSION['con']);
+    $tmp = 'soar';
+    $result = mysql_query("SELECT id,nickName,passwd FROM userInfo WHERE nickName = $tmp", $_SESSION['con']);
     if($row = mysql_fetch_array($result)){
         //匹配到nickName
         if($row['passwd'] == $_SESSION['passwd']){
