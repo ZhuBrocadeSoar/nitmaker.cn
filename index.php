@@ -28,7 +28,6 @@ if($_POST['state'] == "done"){
         if($row['passwd'] == SHA1($_SESSION['passwd'])){
             //密码匹配
             $_SESSION['machState'] = "allMach";
-            exit();
         }else{
             //密码不匹配
             $_SESSION['machState'] = "passwdNotMach";
@@ -56,21 +55,7 @@ echo "</table>";
 ?>
 
 <html>
-<head>
-<?php
-switch($_SESSION['machState']){
-//case "passwdNotMach":case "nickNameNotMach":
-//    echo "输入的信息不匹配，登录失败<br/>";
-//    break;
-case "allMach":
-    echo "登录成功，2秒后自动转跳到用户中心<br/>";
-    echo "<meta http-equiv = \"refresh\" content = \"2;url = http://123.206.204.23/nitmaker.cn/center.php\">";
-    break;
-default:
-    break;
-}
-?>
-</head>
+<head></head>
 <body>
 <h1>Welcome to NITmaker</h1>
 <p>在此处登录账户</p>
@@ -89,10 +74,10 @@ switch($_SESSION['machState']){
 case "passwdNotMach":case "nickNameNotMach":
     echo "输入的信息不匹配，登录失败<br/>";
     break;
-//case "allMach":
-//    echo "登录成功，2秒后自动转跳到用户中心<br/>";
-//    echo "<meta http-equiv = \"refresh\" content = \"2;url = http://123.206.204.23/nitmaker.cn/center.php\">";
-//    break;
+case "allMach":
+    echo "登录成功，2秒后自动转跳到用户中心<br/>";
+    echo "<meta http-equiv = \"refresh\" content = \"2;url = http://123.206.204.23/nitmaker.cn/center.php\">";
+    break;
 default:
     break;
 }
