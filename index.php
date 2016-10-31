@@ -72,8 +72,10 @@ case "passwdNotMach":case "nickNameNotMach":
     echo "输入的信息不匹配，登录失败<br/>";
     break;
 case "allMach":
-    header("location:http://nitmaker.cn/center.php");
-    exit;
+    echo "登录成功，2秒后自动转跳到用户中心<br/>";
+    echo "<meta http-equiv = 'refresh' content = '2;url = http://123.206.204.23/nitmaker.cn/center.php'>";
+    break;
+default:
     break;
 }
 ?>
