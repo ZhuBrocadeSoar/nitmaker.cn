@@ -28,6 +28,7 @@ if($_POST['state'] == "done"){
         if($row['passwd'] == SHA1($_SESSION['passwd'])){
             //密码匹配
             $_SESSION['machState'] = "allMach";
+            exit();
         }else{
             //密码不匹配
             $_SESSION['machState'] = "passwdNotMach";
@@ -71,7 +72,7 @@ case "passwdNotMach":case "nickNameNotMach":
     echo "输入的信息不匹配，登录失败<br/>";
     break;
 case "allMach":
-    header("localhost/nitmaker.cn/center.php");
+    header("Location:http://nitmaker.cn/center.php");
     exit;
     break;
 }
