@@ -51,8 +51,8 @@ if($_SESSION['submitCount']){
     //未提交任何表单，判定为第一次进入该站点
     //记录访问时间;
     $_SESSION['accessTime'] = time();
-    //第一次访问设定为第0次提交表单;
-    $_SESSION['submitCount'] = 0;
+    //第一次访问设定为第1次提交表单;
+    $_SESSION['submitCount'] = 1;
     //初始化的登录信息
     $_SESSION['nickName'] = "nick_name";
     $_SESSION['passwd'] = "password";
