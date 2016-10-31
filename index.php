@@ -56,6 +56,18 @@ echo "</table>";
 ?>
 
 <html>
+<head>
+<?php
+switch($_SESSION['machState']){
+case "allMach":
+    echo "登录成功，2秒后自动转跳到用户中心<br/>";
+    echo "<meta http-equiv = \"refresh\" content = \"2;url = http://123.206.204.23/nitmaker.cn/center.php\">";
+    break;
+default:
+    break;
+}
+?>
+</head>
 <body>
 <h1>Welcome to NITmaker</h1>
 <p>在此处登录账户</p>
