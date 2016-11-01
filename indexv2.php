@@ -1,5 +1,8 @@
 <?php
     session_start();
+    //建立持久的数据库连接
+    $_SESSION['conOfMysql'] = mysql_pconnect("localhost", "nitmaker_cn", "nitmaker.cn");
+    //////////////////////////////////////////数据库地址///数据库名///////用户名///////
 
 
 //判断表单提交次数
@@ -43,9 +46,6 @@ if($_SESSION['submitCount'] >= 1){
     $_SESSION['passwd'] = "password";
     $_SESSION['logInState'] = "notLogIn";
     $_SESSION['logInInfoState'] = "noInput";
-    //建立持久的数据库连接
-    $_SESSION['conOfMysql'] = mysql_pconnect("localhost", "nitmaker_cn", "nitmaker.cn");
-    //////////////////////////////////////////数据库地址///数据库名///////用户名///////
 }
 ?>
 <html>
