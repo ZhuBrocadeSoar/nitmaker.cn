@@ -21,7 +21,8 @@ if($_SESSION['submitCount'] >= 1){
     //转储字符串
     $tmp = $_SESSION['nickName'];
     //查询数据库匹配nickName, 转义字符\"很关键
-    $result = mysql_query("SELECT id,nickName,passwd FROM userInfo WHERE nickName = \"$tmp\"", $_SESSION['con']);
+    //$result = mysql_query("SELECT id,nickName,passwd FROM userInfo WHERE nickName = \"$tmp\"", $_SESSION['con']);
+    $result = mysql_query("SELECT id,nickName,passwd FROM userInfo WHERE nickName = \"soar\"");
     if($row = mysql_fetch_array($result)){
         //匹配到nickName
         if($row['passwd'] == $_SESSION['passwd']){
