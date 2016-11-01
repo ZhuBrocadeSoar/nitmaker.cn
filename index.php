@@ -91,21 +91,21 @@ if($_SESSION['logInState'] == "notLogIn"){
     echo "<p>登录成功，2秒后自动转跳到用户中心</p>";
 }
 
-echo "<table border = 1>";
-echo "<tr><th>_SESSION</th><th>value</th></tr>";
-foreach($_SESSION as $key=>$value){
-    echo "<tr><th>$key</th><td>$value</td></tr>";
-}
-echo "<tr><th>_POST</th><th>value</th></tr>";
-foreach($_POST as $key=>$value){
-    echo "<tr><th>$key</th><td>$value</td></tr>";
-}
-echo "<tr><th>result</th><td>$result</td></tr>";
-echo "<tr><th>row</th><th>value</th></tr>";
-foreach($row as $key=>$value){
-    echo "<tr><th>$key</th><td>$value</td></tr>";
-}
-echo "</table>";
+//echo "<table border = 1>";
+//echo "<tr><th>_SESSION</th><th>value</th></tr>";
+//foreach($_SESSION as $key=>$value){
+//    echo "<tr><th>$key</th><td>$value</td></tr>";
+//}
+//echo "<tr><th>_POST</th><th>value</th></tr>";
+//foreach($_POST as $key=>$value){
+//    echo "<tr><th>$key</th><td>$value</td></tr>";
+//}
+//echo "<tr><th>result</th><td>$result</td></tr>";
+//echo "<tr><th>row</th><th>value</th></tr>";
+//foreach($row as $key=>$value){
+//    echo "<tr><th>$key</th><td>$value</td></tr>";
+//}
+//echo "</table>";
 ?>
 </body>
 
