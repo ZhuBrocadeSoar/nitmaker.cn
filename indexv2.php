@@ -2,10 +2,10 @@
 
 
 //判断表单提交次数
-if($_SESSION['submitCount']){
+if($_SESSION['submitState']){
     $_SESSION['test'] = "test output";
     //提交数已经记录，发生过至少一次提交。
-    $_SESSION['submitCount']++;
+    $_SESSION['submitState'] = "submited";
     //接受提交的表单并安全化
     $_SESSION['nickName'] = htmlspecialchars(stripslashes(trim($_POST['nickName'])));
     $_SESSION['passwd'] = htmlspecialchars(stripslashes(trim($_POST['passwd'])));
@@ -38,7 +38,7 @@ if($_SESSION['submitCount']){
     //记录访问时间;
     $_SESSION['accessTime'] = time();
     //第一次访问设定为第1次提交表单;
-    $_SESSION['submitCount'] = 1;
+    $_SESSION['submitState'] = "Nonsubmit";
     //初始化的登录信息
     $_SESSION['nickName'] = "nick_name";
     $_SESSION['passwd'] = "password";
