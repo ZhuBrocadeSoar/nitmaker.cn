@@ -52,7 +52,7 @@ if($_SESSION['submitCount'] >= 1){
 
 <head>
 <?php
-if($_SESSION['logInInfoState'] == "allMached"){
+if($_SESSION['logInInfoState'] == "allMached" || $_SESSION['logInState'] == "logIned"){
     //2秒转跳到用户中心
     $_SESSION['logInState'] = "logIned";
     echo "<meta http-equiv = \"refresh\" content = \"2;url = http://123.206.204.23/nitmaker.cn/center.php\">";
