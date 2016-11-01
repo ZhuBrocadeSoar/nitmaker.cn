@@ -6,7 +6,7 @@
 
 
 //判断表单提交次数
-if($_SESSION['submitCount'] >= 1){
+if($_SESSION['submitCount'] >= 1 && $_SESSION['logInState'] != "logIned"){
     //提交数已经记录，发生过至少一次提交。
     $_SESSION['submitCount']++;
     //接受提交的表单并安全化
