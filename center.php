@@ -29,7 +29,11 @@ if($_SESSION['logInState'] != "logIned"){
     echo "<p>Hello $tmp</p>";
     echo "<p>Pick a function:</p>";
     $tmp = "123.206.204.23/nitmaker.cn/userinfo.php";
-    echo "<form method = \"post\" action = \"$tmp\"><input type = \"submit\" value = \"点击查看\"></form>";
+    echo "<form method = \"post\" action = \"$tmp\"><input type = \"submit\" value = \" 个人信息 管理 \"></form>";
+    $tmp = "123.206.204.23/nitmaker.cn/ssinfo.php";
+    echo "<form method = \"post\" action = \"$tmp\"><input type = \"submit\" value = \"查看Shadowsocks\"></form>";
+    $tmp = "123.206.204.23/nitmaker.cn/bbs.php";
+    echo "<form method = \"post\" action = \"$tmp\"><input type = \"submit\" value = \"     留言版    \"></form>";
 }
 ?>
 
