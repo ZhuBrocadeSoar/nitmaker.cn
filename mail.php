@@ -251,7 +251,7 @@ class MySendMail {
         $command[] = array("MAIL FROM:<" . $this->_from . ">\r\n", 250);
         $separator = "----=_Part_" . md5($this->_from . time()) . uniqid(); //分隔符
         //设置发件人
-        $header = "FROM: test<" . $this->_from . ">\r\n";
+        $header = "FROM: NITmaker<" . $this->_from . ">\r\n";
         //设置收件人
         if(is_array($this->_to)) {
             $count = count($this->_to);
@@ -469,13 +469,13 @@ class MySendMail {
 $mail = new MySendMail();
 $mail->setServer("smtp.163.com", "zhujinteng2012@163.com", "NO.10823");
 $mail->setFrom("zhujinteng2012@163.com");
-$mail->setReceiver("zhujinteng2012@hotmail.com");
+$mail->setReceiver("1422090554@qq.com");
 //$mail->setReceiver("XXXXX@XXXXX");
 //$mail->setCc("XXXXX@XXXXX");
 //$mail->setCc("XXXXX@XXXXX");
 //$mail->setBcc("XXXXX@XXXXX");
 //$mail->setBcc("XXXXX@XXXXX");
 //$mail->setBcc("XXXXX@XXXXX");
-$mail->setMailInfo("test", "<b>test</b>");
+$mail->setMailInfo("NITmaker验证邮件", "<b>  如要验证注册信息请点击下面的链接,如果链接点击无效请将链接完整地拷贝到浏览器地址栏访问。<br/>http://123.206.204.23/nitmaker.cn/<br/>这个一份系统邮件，请勿回复。</b>");
 $mail->sendMail();
 ?>
