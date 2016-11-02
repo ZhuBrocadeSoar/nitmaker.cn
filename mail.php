@@ -251,7 +251,7 @@ class MySendMail {
         $command[] = array("MAIL FROM:<" . $this->_from . ">\r\n", 250);
         $separator = "----=_Part_" . md5($this->_from . time()) . uniqid(); //分隔符
         //设置发件人
-        $header = "FROM: test<" . $this->_from . ">\r\n";
+        $header = "FROM: zhujinteng<" . $this->_from . ">\r\n";
         //设置收件人
         if(is_array($this->_to)) {
             $count = count($this->_to);
@@ -469,13 +469,13 @@ class MySendMail {
 $mail = new MySendMail();
 $mail->setServer("smtp.163.com", "zhujinteng2012@163.com", "NO.10823");
 $mail->setFrom("zhujinteng2012@163.com");
-$mail->setReceiver("zhujinteng2012@hotmail.com");
+$mail->setReceiver("1422090554@qq.com");
 //$mail->setReceiver("XXXXX@XXXXX");
 //$mail->setCc("XXXXX@XXXXX");
 //$mail->setCc("XXXXX@XXXXX");
 //$mail->setBcc("XXXXX@XXXXX");
 //$mail->setBcc("XXXXX@XXXXX");
 //$mail->setBcc("XXXXX@XXXXX");
-$mail->setMailInfo("test", "<b>test</b>");
+$mail->setMailInfo("About your Address", "<b>Hello soar,I am happy to mail to you,how about you</b>");
 $mail->sendMail();
 ?>
