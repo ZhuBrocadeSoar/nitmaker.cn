@@ -74,5 +74,6 @@ class ValidateCode {
 $_vc = new ValidateCode();
 $_vc->doimg();
 $_SESSION['authnum_session'] = $_vc->getCode();
+$_SESSION['test'] = $_vc->font;
 
 ?>

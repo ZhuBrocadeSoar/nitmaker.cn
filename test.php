@@ -45,4 +45,5 @@ echo "<font color=red>输入有误</font>";
 echo "<font color=green>通过验证</font>"; 
 }
 } 
+echo $_SESSION['test'];
 ?>
