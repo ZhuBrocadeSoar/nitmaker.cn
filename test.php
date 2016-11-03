@@ -1,4 +1,5 @@
 <?php
+require 'src/verification_class.php';
 session_start();
 //在页首先要开启session,
 //error_reporting(2047);
