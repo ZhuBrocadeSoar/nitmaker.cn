@@ -1,4 +1,5 @@
 <?php
+session_start();
 //验证码类
 class ValidateCode {
     private $charset = 'abcdefghkmnprstuvwxyzABCDEFGHKMNPRSTUVWXYZ23456789';//随机因子
@@ -68,3 +69,9 @@ class ValidateCode {
         return strtolower($this->code);
     }
 }
+
+$_vc = new ValidateCode();
+$_vc->doimg();
+$_SESSION['authnum_session'] = $_vc->getCode();
+
+?>

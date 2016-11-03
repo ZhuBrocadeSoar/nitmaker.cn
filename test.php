@@ -1,11 +1,6 @@
 <?php
-require 'src/verification_class.php';
 session_start();
-//在页首先要开启session,
-//error_reporting(2047);
-session_destroy();
-//将session去掉，以每次都能取新的session值;
-//用seesion 效果不错，也很方便
+require 'src/verification_class.php';
 ?>
 <html>
 <head>
@@ -31,7 +26,7 @@ margin-left:20px;
 <p>
 <span>验证码：</span>
 <input type="text" name="validate" value="" size=10> 
-<img  title="点击刷新" src="./captcha.php" align="absbottom" onclick="this.src='captcha.php?'+Math.random();"></img>
+<img  title="点击刷新" src="src/verification_class.php" align="absbottom" onclick="this.src='src/verification_class.php?'+Math.random();"></img>
 </p>
 <p>
 <input type="submit">
