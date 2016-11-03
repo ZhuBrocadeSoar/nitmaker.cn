@@ -59,7 +59,7 @@ class ValidateCode {
     }
     //对外生成
     public function doimg() {
-        $this->__construct();
+//        $this->__construct();
         $this->createBg();
         $this->createCode();
         $this->createLine();
@@ -71,8 +71,8 @@ class ValidateCode {
         return strtolower($this->code);
     }
 }
-//$_vc->__construct();
 $_vc = new ValidateCode();
+$_vc->__construct();
 $_vc->doimg();
 $_SESSION['authnum_session'] = $_vc->getCode();
 
