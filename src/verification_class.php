@@ -8,8 +8,8 @@ class ValidateCode {
     private $width = 130;//宽度
     private $height = 50;//高度
     private $img;//图形资源句柄
-    //    private $font;//指定的字体
-    public $font;
+    private $font;//指定的字体
+    //public $font;
     private $fontsize = 20;//指定字体大小
     private $fontcolor;//指定字体颜色
     //构造方法初始化
@@ -59,7 +59,7 @@ class ValidateCode {
     }
     //对外生成
     public function doimg() {
-//        $this->__construct();
+        $this->__construct();
         $this->createBg();
         $this->createCode();
         $this->createLine();
@@ -71,10 +71,9 @@ class ValidateCode {
         return strtolower($this->code);
     }
 }
-
+//$_vc->__construct();
 $_vc = new ValidateCode();
 $_vc->doimg();
 $_SESSION['authnum_session'] = $_vc->getCode();
-$_SESSION['test'] = $_vc->font;
 
 ?>
