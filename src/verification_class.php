@@ -13,7 +13,7 @@ class ValidateCode {
     private $fontcolor;//指定字体颜色
     //构造方法初始化
     public function __construct() {
-        $this->font = "/nitmaker.cn/src/font/elephant.ttf";//注意字体路径要写对，否则显示不了图片
+        $this->font = "http://123.206.204.23/nitmaker.cn/src/font/elephant.ttf";//注意字体路径要写对，否则显示不了图片
         echo $this->font . "test" . "<br/>";
     }
     //生成随机码
