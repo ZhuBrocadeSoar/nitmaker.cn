@@ -8,12 +8,12 @@ class ValidateCode {
     private $width = 130;//宽度
     private $height = 50;//高度
     private $img;//图形资源句柄
-    private $font = "";//指定的字体
+    private $font;//指定的字体
     private $fontsize = 20;//指定字体大小
     private $fontcolor;//指定字体颜色
     //构造方法初始化
     public function __construct() {
-        $this->$font = 'src/font/elephant.ttf';//注意字体路径要写对，否则显示不了图片
+        $this->$font = "src/font/elephant.ttf";//注意字体路径要写对，否则显示不了图片
         echo $this->font . "test" . "<br/>";
     }
     //生成随机码
