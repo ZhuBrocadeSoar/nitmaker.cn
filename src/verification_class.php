@@ -54,7 +54,7 @@ class ValidateCode {
     private function outPut() {
         header('Content-type:image/png');
         imagepng($this->img);
-        imagedestroy($this->img);
+//        imagedestroy($this->img);
     }
     //对外生成
     public function doimg() {
