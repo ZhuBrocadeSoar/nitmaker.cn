@@ -58,6 +58,7 @@ class ValidateCode {
     }
     //对外生成
     public function doimg() {
+        $this->__construct();
         $this->createBg();
         $this->createCode();
         $this->createLine();
