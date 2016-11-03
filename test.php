@@ -1,6 +1,5 @@
 <?php
 session_start();
-require 'src/verification_class.php';
 ?>
 <html>
 <head>
