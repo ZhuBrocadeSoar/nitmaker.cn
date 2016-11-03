@@ -66,7 +66,8 @@ if($_SESSION['logInInfoState'] == "allMached" || $_SESSION['logInState'] == "log
 
 <body>
 <h1>Welcome to NITmaker</h1>
-<p>在此页面登录或<a herf = "http://123.206.204.23/nitmaker.cn/signup.php">注册</a><p>
+<br/>
+在此页面登录或<a herf = "http://123.206.204.23/nitmaker.cn/signup.php"> 注册 </a>
 <?php
 if($_SESSION['logInState'] == "notLogIn"){
     //打印表单
