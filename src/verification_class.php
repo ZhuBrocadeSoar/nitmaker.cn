@@ -15,7 +15,6 @@ class ValidateCode {
     //构造方法初始化
     public function __construct() {
         $this->font = "/var/www/html/nitmaker.cn/src/font/elephant.ttf";//注意字体路径要写对，否则显示不了图片
-        echo $this->font . "test" . "<br/>";
     }
     //生成随机码
     private function createCode() {
@@ -53,7 +52,7 @@ class ValidateCode {
     }
     //输出
     private function outPut() {
-        //header('Content-type:image/png');
+        header('Content-type:image/png');
         imagepng($this->img);
         imagedestroy($this->img);
     }
@@ -72,7 +71,7 @@ class ValidateCode {
     }
 }
 $_vc = new ValidateCode();
-$_vc->__construct();
+//$_vc->__construct();
 $_vc->doimg();
 $_SESSION['authnum_session'] = $_vc->getCode();
 
