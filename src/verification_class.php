@@ -8,7 +8,7 @@ class ValidateCode {
     private $width = 130;//宽度
     private $height = 50;//高度
     private $img;//图形资源句柄
-    private $font;//指定的字体
+    private $font = "";//指定的字体
     private $fontsize = 20;//指定字体大小
     private $fontcolor;//指定字体颜色
     //构造方法初始化
