@@ -20,7 +20,7 @@ if($_SESSION['logInState'] != "logIned"){
 
 <body>
 <?php
-if($_SESSION['logInState'] != "logIned"){
+if(!isset($_SESSION['logInState']) || $_SESSION['logInState'] != "logIned"){
     //尚未登录，打印转跳信息
     echo "<p>请登录，将在2秒后转跳到登录界面</p>";
 }else{
