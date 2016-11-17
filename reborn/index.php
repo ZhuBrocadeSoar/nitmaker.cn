@@ -7,9 +7,9 @@
 <p>本站点是NITmaker的一个线上服务站点，目前提供的主要功能是Shadowsocks福利资源的申请、发放、查询</p>
 <h1>
 <a href = "<?php
-echo htmlspecialchars(dirname(__FILE__) . "/signup.php");
+echo $_SERVER['HTTP_HOST'] . "/nitmaker.cn/reborn/signup.php";
 ?>">注册</a>或者<a href = "<?php
-echo htmlspecialchars(dirname(__FILE__) . "/login.php");
+echo $_SERVER['HTTP_HOST'] . "/nitmaker.cn/reborn/login.php";
 ?>">登录</a>
 </h1>
 </body>
