@@ -73,6 +73,6 @@ class ValidateCode {
 $_vc = new ValidateCode();
 //$_vc->__construct();
 $_vc->doimg();
-$_SESSION['authnum_session'] = $_vc->getCode();
+$_SESSION['verifCode'] = $_vc->getCode();
 
 ?>

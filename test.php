@@ -38,7 +38,7 @@ $validate="";
 if(isset($_POST["validate"])){
     $validate=$_POST["validate"];
     echo "您刚才输入的是：".$_POST["validate"]."<br>状态：";
-    if($validate!=$_SESSION["authnum_session"]){
+    if($validate!=$_SESSION["verifCode"]){
         //判断session值与用户输入的验证码是否一致;
         echo "<font color=red>输入有误</font>"; 
     }else{
