@@ -8,7 +8,7 @@ if(isset($_POST)){
 	$_SESSION['userTypedPassword'] = htmlspecialchars($_POST['userTypedPassword']);
 	$sha1Of = sha1($_SESSION['userTypedPassword']);
 	for($i = 0; $i < strlen($_POST[userTypedPassword]); $i ++){
-		$_SESSION['modifiedUserTypedPassword'][$i] = $sha1Of[$i];
+		$_SESSION['modifiedUserTypedPassword'][$i] = $sha1Of[$i + 6];
 	}
 	$_SESSION['modifiedUserTypedPassword'][$i] = '\0';
 	$_SESSION['userTypedEmail'] = htmlspecialchars($_POST['userTypedEmail']);
@@ -26,7 +26,7 @@ if(isset($_POST)){
 		<form method = 'post' action = '<?php echo htmlspecialchars($_SERVER[PHP_SELF]);?>'>
 			<table border = 1>
 				<tr> <th>用户名</th> <td><input type = 'text' name = 'userTypedUserName' value = <?php echo  '\''.$_SESSION['userTypedUserName'].'\'';?>></td> </tr>
-				<tr> <th>密码</th> <td><input type = 'password' name = 'userTypedPassword' value = <?php echo '\''.$_SESSION['modifiedUserTypedPassword'].'\'';?></td> </tr>
+				<tr> <th>密码</th> <td><input type = 'password' name = 'userTypedPassword' value = <?php echo '\''.$_SESSION['modifiedUserTypedPassword'].'\'';?>></td> </tr>
 				<tr> <th>邮箱</th> <td><input type = 'text' name = 'userTypedEmail' value = <?php echo '\''.$_SESSION['userTypedEmail'].'\'';?>></td> </tr>
 				<tr> <th>验证码</th> <td><input type = 'text' name = 'userTypedVerifCode' value = <?php echo '\''.$_SESSION['userTypedVerifCode'].'\'';?>></td> </tr>
 			</table>
