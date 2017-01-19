@@ -6,7 +6,7 @@ if(isset($_SESSION['loginStatus'])){//释放原有登录会话
 if(isset($_POST)){
 	$_SESSION['userTypedUserName'] = htmlspecialchars($_POST['userTypedUserName']);
 	$_SESSION['userTypedPassword'] = htmlspecialchars($_POST['userTypedPassword']);
-	parse_str(sha1($_SESSION['userTypedPassword'], $sha1Of);
+	parse_str(sha1($_SESSION['userTypedPassword'], &$sha1Of);
 	for($i = 0; $i < strlen($_POST[userTypedPassword]); $i ++){
 		$_SESSION['modifiedUserTypedPassword'][$i] = $sha1Of[$i];
 	}
