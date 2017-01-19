@@ -3,6 +3,12 @@ session_start();
 if(isset($_SESSION['loginStatus'])){//释放原有登录会话
 	session_unset();
 }
+if(isset($_POST)){
+	$_SESSION['userTypedUserName'] = htmlspecialchars($_POST['userTypedUserName']);
+	$_SESSION['userTypedPassword'] = htmlspecialchars($_POST['userTypedPassword']);
+	$_SESSION['userTypedEmail'] = htmlspecialchars($_POST['userTypedEmail']);
+	$_SESSION['userTypedVerifCode'] = htmlspecialchars($_POST['userTypedVerifCode']);
+}
 ?>
 
 <html>
