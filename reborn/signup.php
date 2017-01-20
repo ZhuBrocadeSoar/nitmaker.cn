@@ -15,9 +15,9 @@ if(isset($_POST)){
 	$x = document.getElementById('signupinfo');
 	function changeValueOfPassword($status){
 		if($status == 'currect'){
-			x.elements[1].value = $_SESSION['userTypedPassword'];
+			$x.elements[1].value = $_SESSION['userTypedPassword'];
 		}else if($status == 'sha1value'){
-			x.elements[1].value = sha1($_SESSION['userTypedPassword']);
+			$x.elements[1].value = sha1($_SESSION['userTypedPassword']);
 		}
 	}
 </script>
