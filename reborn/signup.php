@@ -11,14 +11,10 @@ if(isset($_POST)){
 }
 ?>
 
-<script language = 'php'>
-	$x = document.getElementById('signupinfo');
-	function changeValueOfPassword($status){
-		if($status == 'currect'){
-			$x.elements[1].value = $_SESSION['userTypedPassword'];
-		}else if($status == 'sha1value'){
-			$x.elements[1].value = sha1($_SESSION['userTypedPassword']);
-		}
+<script language = 'javaScript'>
+	x = document.getElementById('signupinfo');
+	function emptyPassword(){
+		x.elements[1].value = "";
 	}
 </script>
 
@@ -32,7 +28,7 @@ if(isset($_POST)){
 		<form id = 'signupinfo' method = 'post' action = '<?php echo htmlspecialchars($_SERVER[PHP_SELF]);?>'>
 			<table border = 1>
 				<tr> <th>用户名</th> <td><input type = 'text' name = 'userTypedUserName' value = <?php echo  '\''.$_SESSION['userTypedUserName'].'\'';?>></td> </tr>
-				<tr> <th>密码</th> <td><input type = 'password' name = 'userTypedPassword' onfocus = "changeValueOfPassword('curect')" onblur = "changeValueOfPassword('sha1value')"></td> </tr>
+				<tr> <th>密码</th> <td><input type = 'password' name = 'userTypedPassword' value = <?php echo '\''.sha1($_SESSION['userTypedPassword']).'\'';?> onfocus = "emptyPassword()"></td> </tr>
 				<tr> <th>邮箱</th> <td><input type = 'text' name = 'userTypedEmail' value = <?php echo '\''.$_SESSION['userTypedEmail'].'\'';?>></td> </tr>
 				<tr> <th>验证码</th> <td><input type = 'text' name = 'userTypedVerifCode' value = <?php echo '\''.$_SESSION['userTypedVerifCode'].'\'';?>></td> </tr>
 			</table>
