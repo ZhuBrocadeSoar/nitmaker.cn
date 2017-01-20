@@ -12,7 +12,7 @@ if(isset($_POST)){
 ?>
 
 <script language = 'php'>
-	var x = document.getElementById('signupinfo');
+	$x = document.getElementById('signupinfo');
 	function changeValueOfPassword($status){
 		if($status == 'currect'){
 			x.elements[1].value = $_SESSION['userTypedPassword'];
