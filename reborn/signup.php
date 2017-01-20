@@ -15,6 +15,7 @@ if(isset($_POST)){
 <script>
 	function emptyPassword(){
 		document.getElementById('passwordObjuct').value = '';
+		ruleOfPassword();
 	}
 	function ruleOfUserName(operate){
 		if(operate == 1){
