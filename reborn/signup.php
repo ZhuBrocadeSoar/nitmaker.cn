@@ -16,8 +16,11 @@ if(isset($_POST)){
 	function emptyPassword(){
 		document.getElementById('passwordObjuct').value = '';
 	}
-	function ruleOfUserName(id){
-		document.getElementById()
+	function ruleOfUserName(){
+		document.getElementById('ruleOfUserNameObjuct').innerHTML = '用户名由字母(区分大小写)、数字或者下划线组成，最多32个字符，用于用户登录';
+	}
+	function ruleOfPassword(){
+		document.getElementById('ruleOfPasswordObjuct').innerHTML = '密码可包含字母(区分大小写)、数字或标点符号，不能有空格等空白符，长度为6~14个字符';
 	}
 </script>
 
@@ -30,8 +33,8 @@ if(isset($_POST)){
 		<h1>注册</h1>
 		<form method = 'post' action = '<?php echo htmlspecialchars($_SERVER[PHP_SELF]);?>'>
 			<table border = 0>
-				<tr> <th>用户名</th> <td><input type = 'text' id = 'usernameObjuct' name = 'userTypedUserName' value = <?php echo  '\''.$_SESSION['userTypedUserName'].'\'';?> onfocus = "ruleOfUserName()"></td> <td id = 'ruleOfUserNameObjuct'>test</td> </tr>
-				<tr> <th>密码</th> <td><input type = 'password' id = 'passwordObjuct' name = 'userTypedPassword' value = <?php echo '\''.$_SESSION['modifiedUserTypedPassword'].'\'';?> onclick = "emptyPassword()" onfocus = "ruleOfPassword()"></td> <td id = 'ruleOfPasswordObjuct'>test222222</td> </tr>
+				<tr> <th>用户名</th> <td><input type = 'text' id = 'usernameObjuct' name = 'userTypedUserName' value = <?php echo  '\''.$_SESSION['userTypedUserName'].'\'';?> onfocus = "ruleOfUserName()"></td> <td id = 'ruleOfUserNameObjuct'></td> </tr>
+				<tr> <th>密码</th> <td><input type = 'password' id = 'passwordObjuct' name = 'userTypedPassword' value = <?php echo '\''.$_SESSION['modifiedUserTypedPassword'].'\'';?> onclick = "emptyPassword()" onfocus = "ruleOfPassword()"></td> <td id = 'ruleOfPasswordObjuct'></td> </tr>
 				<tr> <th>邮箱</th> <td><input type = 'text' id = 'emailObjuct' name = 'userTypedEmail' value = <?php echo '\''.$_SESSION['userTypedEmail'].'\'';?> onfocus = "ruleOfEmail()"></td> </tr>
 				<tr> <th>验证码</th> <td><input type = 'text' name = 'userTypedVerifCode' value = <?php echo '\''.$_SESSION['userTypedVerifCode'].'\'';?>></td> </tr>
 			</table>
