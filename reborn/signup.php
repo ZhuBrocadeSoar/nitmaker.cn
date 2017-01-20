@@ -12,7 +12,6 @@ if(isset($_POST)){
 ?>
 
 <script language = 'javaScript'>
-	x = document.getElementById('signupinfo');
 	function emptyPassword(){
 		x.elements[1].value = "";
 	}
