@@ -29,7 +29,7 @@ if(isset($_POST)){
 	<body>
 		<h1>注册</h1>
 		<form method = 'post' action = '<?php echo htmlspecialchars($_SERVER[PHP_SELF]);?>'>
-			<table border = 1>
+			<table border = 0>
 				<tr> <th>用户名</th> <td><input type = 'text' id = 'usernameObjuct' name = 'userTypedUserName' value = <?php echo  '\''.$_SESSION['userTypedUserName'].'\'';?> onfocus = "ruleOfUserName()"></td> <td id = 'ruleOfUserNameObjuct'>test</td> </tr>
 				<tr> <th>密码</th> <td><input type = 'password' id = 'passwordObjuct' name = 'userTypedPassword' value = <?php echo '\''.$_SESSION['modifiedUserTypedPassword'].'\'';?> onclick = "emptyPassword()" onfocus = "ruleOfPassword()"></td> <td id = 'ruleOfPasswordObjuct'>test222222</td> </tr>
 				<tr> <th>邮箱</th> <td><input type = 'text' id = 'emailObjuct' name = 'userTypedEmail' value = <?php echo '\''.$_SESSION['userTypedEmail'].'\'';?> onfocus = "ruleOfEmail()"></td> </tr>
