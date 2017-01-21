@@ -70,8 +70,8 @@ if(isset($_POST['submitStatus'])){
 					}else{
 						$to = "1422090554@qq.com";
 						$subjuct = "欢迎注册NITmaker";
-						$message = "<p><font size = '2' color = 'black'>在验证界面输入下面的验证码以完成注册</font></p>\n<p><font size = '6' color = 'blue'>test01</font></p>\n<p><font size = '2' color = 'black'>这是一封系统邮件，请勿回复</font></p>\n";
-						$addHeader = "From:NITmaker<nitmaker@163.com>";
+						$message = "<html><p><font size = '2' color = 'black'>在验证界面输入下面的验证码以完成注册</font></p><p><font size = '6' color = 'blue'>test01</font></p><p><font size = '2' color = 'black'>这是一封系统邮件，请勿回复</font></p></html>\n";
+						$addHeader = "From:NITmaker<nitmaker@163.com>\r\nContent-type:text/html\r\n";
 						mail($to, $subjuct, $message, $addHeader);
 					}
 				}
