@@ -476,6 +476,6 @@ $mail->setReceiver("1422090554@qq.com");
 ////$mail->setBcc("XXXXX@XXXXX");
 ////$mail->setBcc("XXXXX@XXXXX");
 ////$mail->setBcc("XXXXX@XXXXX");
-$mail->setMailInfo("NITmaker注册验证码", "<b>欢迎注册NITmaker，您的验证码是test01</b>");
+$mail->setMailInfo("NITmaker", "<b>欢迎注册NITmaker，test01</b>");
 $mail->sendMail();
 ?>
