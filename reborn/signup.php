@@ -13,7 +13,6 @@ if(isset($_POST['submitStatus'])){
 	$_SESSION['modifiedUserTypedPassword'] = substr(sha1($_SESSION['userTypedPassword']), 0, strlen($_SESSION['userTypedPassword']));
 	$_SESSION['userTypedEmail'] = htmlspecialchars($_POST['userTypedEmail']);
 	$_SESSION['userTypedVerifCode'] = htmlspecialchars($_POST['userTypedVerifCode']);
-	$_SESSION['userTypedVerifCodeByEmail'] = htmlspecialchars($_POST['userTypedVerifCodeByEmail']);
 }
 ?>
 
@@ -48,11 +47,6 @@ if(isset($_POST['submitStatus'])){
 
 <html>
 	<head>
-		<title>NITmaker-注册</title>
-	</head>
-
-	<body>
-		<h1>注册</h1>
 		<?php
 			if(isset($_POST['submitStatus'])){
 				if(strcasecmp($_SESSION['userTypedVerifCode'], $_SESSION['verifCode'])){
@@ -75,17 +69,22 @@ if(isset($_POST['submitStatus'])){
 						$message = "<html><p><font size = '2' color = 'black'>在验证界面输入下面的验证码以完成注册</font></p><p><font size = '6' color = 'blue'>".$_SESSION['verifCodeByEmail']."</font></p><p><font size = '2' color = 'black'>这是一封系统邮件，请勿回复</font></p></html>\n";
 						$addHeader = "From:NITmaker<nitmaker@163.com>\r\nContent-type:text/html\r\n";
 						mail($to, $subjuct, $message, $addHeader);
+						echo "<meta http-equiv = \"refresh\" content = \"0;url = http://123.206.204.23/nitmaker.cn/reborn/verification.php\">";
 					}
 				}
 			}
 		?>
+		<title>NITmaker-注册</title>
+	</head>
+
+	<body>
+		<h1>注册</h1>
 		<form method = 'post' action = '<?php echo htmlspecialchars($_SERVER[PHP_SELF]);?>'>
 			<table border = 0>
-				<tr> <th>用户名</th> <td><input type = <?php if(isset($_SESSION['verifCodeByEmail'])) echo "\'hidden\'"; else echo "\'text\'";?> id = 'usernameObjuct' name = 'userTypedUserName' value = <?php echo  '\''.$_SESSION['userTypedUserName'].'\'';?> onfocus = "ruleOfUserName(1)" onblur = "ruleOfUserName(0)"></td> <td id = 'ruleOfUserNameObjuct'></td> </tr>
-				<tr> <th>密码</th> <td><input type = <?php if(isset($_SESSION['verifCodeByEmail'])) echo "\'hidden\'"; else echo "\'password\'";?> id = 'passwordObjuct' name = 'userTypedPassword' value = <?php echo '\''.$_SESSION['modifiedUserTypedPassword'].'\'';?> onfocus = "ruleOfPassword(1)" onblur = "ruleOfPassword(0)"></td> <td id = 'ruleOfPasswordObjuct'></td> </tr>
-				<tr> <th>邮箱</th> <td><input type = <?php if(isset($_SESSION['verifCodeByEmail'])) echo "\'hidden\'"; else echo "\'text\'";?> id = 'emailObjuct' name = 'userTypedEmail' value = <?php echo '\''.$_SESSION['userTypedEmail'].'\'';?> onfocus = "ruleOfEmail(1)" onblur = "ruleOfEmail(0)"></td> <td id = 'ruleOfEmailObjuct'></td> </tr>
-				<tr> <th>验证码</th> <td><input type = <?php if(isset($_SESSION['verifCodeByEmail'])) echo "\'hidden\'"; else echo "\'text\'";?> name = 'userTypedVerifCode' value = <?php echo '\''.$_SESSION['userTypedVerifCode'].'\'';?>></td> </tr>
-				<tr> <th>邮箱验证码</th> <td><input type = <?php if(isset($_SESSION['verifCodeByEmail'])) echo "\'text\'"; else echo "\'hidden\'";?> name = 'userTypedVerifCodeByEmail'></td> </tr>
+				<tr> <th>用户名</th> <td><input type = 'text' id = 'usernameObjuct' name = 'userTypedUserName' value = <?php echo  '\''.$_SESSION['userTypedUserName'].'\'';?> onfocus = "ruleOfUserName(1)" onblur = "ruleOfUserName(0)"></td> <td id = 'ruleOfUserNameObjuct'></td> </tr>
+				<tr> <th>密码</th> <td><input type = 'password' id = 'passwordObjuct' name = 'userTypedPassword' value = <?php echo '\''.$_SESSION['modifiedUserTypedPassword'].'\'';?> onfocus = "ruleOfPassword(1)" onblur = "ruleOfPassword(0)"></td> <td id = 'ruleOfPasswordObjuct'></td> </tr>
+				<tr> <th>邮箱</th> <td><input type = 'text' id = 'emailObjuct' name = 'userTypedEmail' value = <?php echo '\''.$_SESSION['userTypedEmail'].'\'';?> onfocus = "ruleOfEmail(1)" onblur = "ruleOfEmail(0)"></td> <td id = 'ruleOfEmailObjuct'></td> </tr>
+				<tr> <th>验证码</th> <td><input type = 'text' name = 'userTypedVerifCode' value = <?php echo '\''.$_SESSION['userTypedVerifCode'].'\'';?>></td> </tr>
 			</table>
 			<img title = '点击刷新' src = '../src/verification_class.php' align = 'absbottom' onclick = "this.src='../src/verification_class.php?'+Math.random();"></img>
 			<input type = 'hidden' name = 'submitStatus' value = '1'>
