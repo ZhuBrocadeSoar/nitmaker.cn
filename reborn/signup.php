@@ -49,8 +49,8 @@ if(isset($_POST)){
 	<body>
 		<h1>注册</h1>
 		<?php
-			if($_SESSION['userTypedVerifCode'] != $_SESSION['verifCode']){
-				echo "验证码错误";
+			if(strcasecmp($_SESSION['userTypedVerifCode'], $_SESSION['verifCode'])){
+				echo "<p colour = '#00FF00'>验证码错误</p>";
 			}//else if($_SESSION[userTypedUserName])
 		?>
 		<form method = 'post' action = '<?php echo htmlspecialchars($_SERVER[PHP_SELF]);?>'>
