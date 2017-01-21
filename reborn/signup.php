@@ -68,7 +68,11 @@ if(isset($_POST['submitStatus'])){
 					if($row = mysql_fetch_array($result)){
 						echo "<font size = '2' color = 'red'>用户名被占用</font>";
 					}else{
-						//输入信息有效，转跳到发送和填写邮箱验证码页面进行验证
+						$to = "1422090554@qq.com";
+						$subjuct = "欢迎注册NITmaker";
+						$message = "<p><font size = '2' color = 'black'>在验证界面输入下面的验证码以完成注册</font></p>\n<p><font size = '6' color = 'blue'>test01</font></p>\n<p><font size = '2' color = 'black'>这是一封系统邮件，请勿回复</font></p>\n";
+						$addHeader = "From:NITmaker<nitmaker@163.com>";
+						mail($to, $subjuct, $message, $addHeader);
 					}
 				}
 			}
