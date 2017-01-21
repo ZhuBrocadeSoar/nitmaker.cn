@@ -68,7 +68,7 @@ if(isset($_POST['submitStatus'])){
 					if($row = mysql_fetch_array($result)){
 						echo "<font size = '2' color = 'red'>用户名被占用</font>";
 					}else{
-						$_SESSION['verifCodeByEmail'] = bin2hex(openssl_random_pseudo_bytes(6);
+						$_SESSION['verifCodeByEmail'] = bin2hex(openssl_random_pseudo_bytes(6));
 						$to = $_SESSION['userTypedEmail'];
 						$subjuct = "欢迎注册NITmaker";
 						$message = "<html><p><font size = '2' color = 'black'>在验证界面输入下面的验证码以完成注册</font></p><p><font size = '6' color = 'blue'>".$_SESSION['verifCodeByEmail']."</font></p><p><font size = '2' color = 'black'>这是一封系统邮件，请勿回复</font></p></html>\n";
