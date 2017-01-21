@@ -15,7 +15,6 @@ if(isset($_POST)){
 <script>
 	function emptyPassword(){
 		document.getElementById('passwordObjuct').value = '';
-		ruleOfPassword();
 	}
 	function ruleOfUserName(operate){
 		if(operate == 1){
@@ -27,6 +26,7 @@ if(isset($_POST)){
 	}
 	function ruleOfPassword(operate){
 		if(operate == 1){
+			emptyPassword();
 			document.getElementById('ruleOfPasswordObjuct').innerHTML = '密码可包含字母(区分大小写)、数字或标点符号，不能有空格等空白符，长度为6~14个字符';
 		}else if(operate == 0){
 			document.getElementById('ruleOfPasswordObjuct').innerHTML = '';
@@ -48,10 +48,15 @@ if(isset($_POST)){
 
 	<body>
 		<h1>注册</h1>
+		<?php
+			if($_SESSION['userTypedVerifCode'] != $_SESSION['verifCode']){
+				echo "验证码错误";
+			}//else if($_SESSION[userTypedUserName])
+		?>
 		<form method = 'post' action = '<?php echo htmlspecialchars($_SERVER[PHP_SELF]);?>'>
 			<table border = 0>
 				<tr> <th>用户名</th> <td><input type = 'text' id = 'usernameObjuct' name = 'userTypedUserName' value = <?php echo  '\''.$_SESSION['userTypedUserName'].'\'';?> onfocus = "ruleOfUserName(1)" onblur = "ruleOfUserName(0)"></td> <td id = 'ruleOfUserNameObjuct'></td> </tr>
-				<tr> <th>密码</th> <td><input type = 'password' id = 'passwordObjuct' name = 'userTypedPassword' value = <?php echo '\''.$_SESSION['modifiedUserTypedPassword'].'\'';?> onclick = "emptyPassword()" onfocus = "ruleOfPassword(1)" onblur = "ruleOfPassword(0)"></td> <td id = 'ruleOfPasswordObjuct'></td> </tr>
+				<tr> <th>密码</th> <td><input type = 'password' id = 'passwordObjuct' name = 'userTypedPassword' value = <?php echo '\''.$_SESSION['modifiedUserTypedPassword'].'\'';?> onfocus = "ruleOfPassword(1)" onblur = "ruleOfPassword(0)"></td> <td id = 'ruleOfPasswordObjuct'></td> </tr>
 				<tr> <th>邮箱</th> <td><input type = 'text' id = 'emailObjuct' name = 'userTypedEmail' value = <?php echo '\''.$_SESSION['userTypedEmail'].'\'';?> onfocus = "ruleOfEmail(1)" onblur = "ruleOfEmail(0)"></td> <td id = 'ruleOfEmailObjuct'></td> </tr>
 				<tr> <th>验证码</th> <td><input type = 'text' name = 'userTypedVerifCode' value = <?php echo '\''.$_SESSION['userTypedVerifCode'].'\'';?>></td> </tr>
 			</table>
