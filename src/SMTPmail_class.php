@@ -467,7 +467,7 @@ class MySendMail {
 }
 ///**************************** Test ***********************************/
 $mail = new MySendMail();
-$mail->setServer("smtp.163.com", "nitmaker@163.com", "6nitmaker6");
+$mail->setServer("smtp.163.com", "nitmaker@163.com", "");
 $mail->setFrom("nitmaker@163.com");
 $mail->setReceiver("1422090554@qq.com");
 //////$mail->setReceiver("XXXXX@XXXXX");
