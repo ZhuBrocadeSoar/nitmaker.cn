@@ -3,7 +3,7 @@ session_start();
 if(isset($_SESSION['loginStatus'])){//释放原有登录会话
 	session_unset();
 }
-if(isset($_POST)){
+if(isset($_POST['submitStatus'])){
 	$_SESSION['userTypedUserName'] = htmlspecialchars($_POST['userTypedUserName']);
 	$_SESSION['userTypedPassword'] = htmlspecialchars($_POST['userTypedPassword']);
 	$_SESSION['modifiedUserTypedPassword'] = substr(sha1($_SESSION['userTypedPassword']), 0, strlen($_SESSION['userTypedPassword']));
@@ -49,7 +49,7 @@ if(isset($_POST)){
 	<body>
 		<h1>注册</h1>
 		<?php
-			if(isset($_POST)){
+			if(isset($_POST['submitStatus'])){
 				if(strcasecmp($_SESSION['userTypedVerifCode'], $_SESSION['verifCode'])){
 					echo "<font size = '2' color = 'red'>验证码错误</font>";
 				}//else if($_SESSION[userTypedUserName])
@@ -63,6 +63,7 @@ if(isset($_POST)){
 				<tr> <th>验证码</th> <td><input type = 'text' name = 'userTypedVerifCode' value = <?php echo '\''.$_SESSION['userTypedVerifCode'].'\'';?>></td> </tr>
 			</table>
 			<img title = '点击刷新' src = '../src/verification_class.php' align = 'absbottom' onclick = "this.src='../src/verification_class.php?'+Math.random();"></img>
+			<input type = 'hidden' name = 'submitStatus' value = '1'>
 			<input type = 'submit' value = '注册'>
 		</form>
 	</body>
