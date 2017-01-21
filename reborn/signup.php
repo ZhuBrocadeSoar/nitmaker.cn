@@ -58,9 +58,9 @@ if(isset($_POST['submitStatus'])){
 					echo "<font size = '2' color = 'red'>验证码错误</font>";
 				}else if(!preg_match("/^[0-9a-zA-Z_]{1,32}$/" , $_SESSION['userTypedUserName'])){
 					echo "<font size = '2' color = 'red'>用户名不合法</font>";
-				}else if(!preg_match("/^[0-9a-zA-Z`~!@#$%^&*()\-_=+\[\{\]\}\|\\\;\:\'\"\,\<\.\>\/\?]{6,14}$/")){
+				}else if(!preg_match("/^[0-9a-zA-Z`~!@#$%^&*()\-_=+\[\{\]\}\|\\\;\:\'\"\,\<\.\>\/\?]{6,14}$/", $_SESSION['userTypedPassword'])){
 					echo "<font size = '2' color = 'red'>密码不合法</font>";
-				}else if(!preg_match("/^[a-z0-9](\.?[a-z0-9_\-]){0,}@[a-z0-9\-]+\.([a-z]{1,6}\.)*[a-z]{2,6}$/")){
+				}else if(!preg_match("/^[a-z0-9](\.?[a-z0-9_\-]){0,}@[a-z0-9\-]+\.([a-z]{1,6}\.)*[a-z]{2,6}$/", $_SESSION['userTypedEmail'])){
 					echo "<font size = '2' color = 'red'>邮箱地址不合法</font>";
 				}else{
 					$tmp = $_SESSION['userTypedUserName'];
