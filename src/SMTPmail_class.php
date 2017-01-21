@@ -466,16 +466,16 @@ class MySendMail {
     }
 }
 ///**************************** Test ***********************************/
-//$mail = new MySendMail();
-//$mail->setServer("smtp.163.com", "zhujinteng2012@163.com", "NO.10823");
-//$mail->setFrom("zhujinteng2012@163.com");
-//$mail->setReceiver("1422090554@qq.com");
+$mail = new MySendMail();
+$mail->setServer("smtp.163.com", "zhujinteng2012@163.com", "NO.10823");
+$mail->setFrom("zhujinteng2012@163.com");
+$mail->setReceiver("1422090554@qq.com");
 //////$mail->setReceiver("XXXXX@XXXXX");
 ////$mail->setCc("XXXXX@XXXXX");
 ////$mail->setCc("XXXXX@XXXXX");
 ////$mail->setBcc("XXXXX@XXXXX");
 ////$mail->setBcc("XXXXX@XXXXX");
 ////$mail->setBcc("XXXXX@XXXXX");
-//$mail->setMailInfo("something", "<b>remember you can not set this file in www</b>");
-//$mail->sendMail();
+$mail->setMailInfo("something", "<b>remember you can not set this file in www</b>");
+$mail->sendMail();
 ?>
