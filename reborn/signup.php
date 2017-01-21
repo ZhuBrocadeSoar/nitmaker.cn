@@ -3,6 +3,10 @@ session_start();
 if(isset($_SESSION['loginStatus'])){//释放原有登录会话
 	session_unset();
 }
+
+$_SESSION['conOfMysql'] = mysql_pconnect("localhost", "nitmaker_cn", "nitmaker.cn");
+mysql_select_db("nitmaker_cn", $_SESSION['conOfMysql']);
+
 if(isset($_POST['submitStatus'])){
 	$_SESSION['userTypedUserName'] = htmlspecialchars($_POST['userTypedUserName']);
 	$_SESSION['userTypedPassword'] = htmlspecialchars($_POST['userTypedPassword']);
@@ -27,7 +31,7 @@ if(isset($_POST['submitStatus'])){
 	function ruleOfPassword(operate){
 		if(operate == 1){
 			emptyPassword();
-			document.getElementById('ruleOfPasswordObjuct').innerHTML = '密码可包含字母(区分大小写)、数字或标点符号，不能有空格等空白符，长度为6~14个字符';
+			document.getElementById('ruleOfPasswordObjuct').innerHTML = '密码可包含字母(区分大小写)、数字或英文标点符号，不能有空格等空白符，长度为6~14个字符';
 		}else if(operate == 0){
 			document.getElementById('ruleOfPasswordObjuct').innerHTML = '';
 		}
@@ -52,8 +56,20 @@ if(isset($_POST['submitStatus'])){
 			if(isset($_POST['submitStatus'])){
 				if(strcasecmp($_SESSION['userTypedVerifCode'], $_SESSION['verifCode'])){
 					echo "<font size = '2' color = 'red'>验证码错误</font>";
-				}else if(!preg_match("/^[0-9a-zA-Z_]{1,32}$/" , $_SESSION['userTypedUserName'])){//用户名合法性
+				}else if(!preg_match("/^[0-9a-zA-Z_]{1,32}$/" , $_SESSION['userTypedUserName'])){
 					echo "<font size = '2' color = 'red'>用户名不合法</font>";
+				}else if(!preg_match("/^[0-9a-zA-Z`~!@#$%^&*()\-_=+\[\{\]\}\|\\\;\:\'\"\,\<\.\>\/\?]{6,14}$/")){
+					echo "<font size = '2' color = 'red'>密码不合法</font>";
+				}else if(!preg_match("/^[a-z0-9](\.?[a-z0-9_\-]){0,}@[a-z0-9\-]+\.([a-z]{1,6}\.)*[a-z]{2,6}$/")){
+					echo "<font size = '2' color = 'red'>邮箱地址不合法</font>";
+				}else{
+					$tmp = $_SESSION['userTypedUserName'];
+					$result = mysql_query("SELECT userName FROM userList WHERE userName = \"$tmp\"", $_SESSION['conOfMysql']);
+					if($row = mysql_fetch_array($result)){
+						echo "<font size = '2' color = 'red'>用户名被占用</font>";
+					}else{
+						//输入信息有效，转跳到发送和填写邮箱验证码页面进行验证
+					}
 				}
 			}
 		?>
