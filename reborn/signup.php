@@ -49,11 +49,10 @@ if(isset($_POST['submitStatus'])){
 	<body>
 		<h1>注册</h1>
 		<?php
-			$userNamePattrn = /'^[0-9a-zA-Z_]{1,32}$/';
 			if(isset($_POST['submitStatus'])){
 				if(strcasecmp($_SESSION['userTypedVerifCode'], $_SESSION['verifCode'])){
 					echo "<font size = '2' color = 'red'>验证码错误</font>";
-				}else if(!preg_match($userNamePattrn , $_SESSION['userTypedUserName'])){//用户名合法性
+				}else if(!preg_match("/^[0-9a-zA-Z_]{1,32}$/g" , $_SESSION['userTypedUserName'])){//用户名合法性
 					echo "<font size = '2' color = 'red'>用户名不合法</font>";
 				}
 			}
