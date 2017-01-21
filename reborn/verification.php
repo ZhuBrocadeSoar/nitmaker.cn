@@ -5,11 +5,13 @@ if(!isset($_SESSION['verifQuery'])){
 	echo "<html>
 	<head>
 		<title></title>
-		<meta http-equiv = \'refresh\' content = \'0;url = http://123.206.204.23/nitmaker.cn/reborn/'>
+		<meta http-equiv = \'refresh\' content = \'0;url = http://123.206.204.23/nitmaker.cn/reborn/\'>
 	</head>
 	<body>
 	
 	</body>
-	</html>"
-}else{}
+	</html>";
+}else{
+	echo "hello";
+}
 ?>
