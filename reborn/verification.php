@@ -13,5 +13,6 @@ if(!isset($_SESSION['verifQuery'])){
 	</html>";
 }else{
 	echo "hello";
+	unset($_SESSION['verifQuery']);
 }
 ?>
