@@ -68,9 +68,10 @@ if(isset($_POST['submitStatus'])){
 					if($row = mysql_fetch_array($result)){
 						echo "<font size = '2' color = 'red'>用户名被占用</font>";
 					}else{
-						$to = "1422090554@qq.com";
+						$_SESSION['verifCodeByEmail'] = bin2hex(random_bytes(6));
+						$to = $_SESSION['userTypedEmail'];
 						$subjuct = "欢迎注册NITmaker";
-						$message = "<html><p><font size = '2' color = 'black'>在验证界面输入下面的验证码以完成注册</font></p><p><font size = '6' color = 'blue'>test01</font></p><p><font size = '2' color = 'black'>这是一封系统邮件，请勿回复</font></p></html>\n";
+						$message = "<html><p><font size = '2' color = 'black'>在验证界面输入下面的验证码以完成注册</font></p><p><font size = '6' color = 'blue'>".$_SESSION['verifCodeByEmail']."</font></p><p><font size = '2' color = 'black'>这是一封系统邮件，请勿回复</font></p></html>\n";
 						$addHeader = "From:NITmaker<nitmaker@163.com>\r\nContent-type:text/html\r\n";
 						mail($to, $subjuct, $message, $addHeader);
 					}
