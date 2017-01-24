@@ -9,13 +9,13 @@ if(!isset($_SESSION['verifQuery'])){
 	$subjuct = '欢迎注册NITmaker';
 	$_SESSION['verifCodeByEmail'] = bin2hex(openssl_random_pseudo_bytes(3));
 	$message = "<html>
-	<p><font size = '3' color = 'black'>亲爱的</font><font size = '3' color = 'green'>".$_SESSION['userTypedUserName']."</font></p>
-	<p><font size = '3' color = 'black'>  您正在注册NITmaker，下面是您刚才注册时服务器向您发起的邮箱验证码：</font></p>
-	<p><font size = '6' color = 'blue'>".$_SESSION['verifCodeByEmail']."</font></p>
-	<p><font size = '3'>本站目前处于建设阶段，向注册用户提供SS服务的申请和查询服务。注册完成后请及时登录并填写基本信息。</font></p>
-	<p><font size = '3' color = 'red'>若非邮箱所有者您发起该验证，有扰您忽略本邮件。</font></p></html>
+	<p><font size = '3' color = 'black'>亲爱的</font>\n<font size = '3' color = 'green'>".$_SESSION['userTypedUserName']."</font></p>\n
+	<p><font size = '3' color = 'black'>  您正在注册NITmaker，下面是您刚才\n注册时服务器向您发起的邮箱验证码：</font></p>\n
+	<p><font size = '6' color = 'blue'>\n".$_SESSION['verifCodeByEmail']."</font></p>\n
+	<p><font size = '3'>本站目前处于建设阶段，向注册用户提供SS服务的申请和\n查询服务。注册完成后请及时登录并填写基本信息。</font></p>\n
+	<p><font size = '3' color = 'red'>若非邮箱所有者您发起\n该验证，有扰您忽略本邮件。</font></p></html>
 	\n";
-	$addHeader = "From:NITmaker<nitmaker@163.com>\nMIME-Version:1.0\nContent-type:text/html\n";
+	$addHeader = "From:NITmaker<nitmaker@163.com>\r\nMIME-Version:1.0\r\nContent-type:text/html\r\n";
 	mail($to, $subjuct, $message, $addHeader);
     echo "<html>
 				<head>
