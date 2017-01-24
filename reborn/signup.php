@@ -1,6 +1,6 @@
 <?php
 session_start();
-if(isset($_SESSION['loginStatus'])){//释放原有登录会话
+if(/*isset($_SESSION['loginStatus'])*/1){//释放原有登录会话
 	session_unset();
 }
 
