@@ -1,9 +1,10 @@
 <?php
 session_start();
-if(/*isset($_SESSION['loginStatus'])*/1){//释放原有登录会话
+if(isset($_SESSION['signupTrying'])){//释放原有登录会话
 	session_unset();
 }
 
+$_SESSION['signupTrying'] = '1';
 $_SESSION['conOfMysql'] = mysql_pconnect("localhost", "nitmaker_cn", "nitmaker.cn");
 mysql_select_db("nitmaker_cn", $_SESSION['conOfMysql']);
 
@@ -74,6 +75,7 @@ if(isset($_POST['submitStatus'])){
 							$message = "<html><p><font size = '2' color = 'black'>在验证界面输入下面的验证码以完成注册</font></p><p><font size = '6' color = 'blue'>".$_SESSION['verifCodeByEmail']."</font></p><p><font size = '2' color = 'black'>这是一封系统邮件，请勿回复</font></p></html>\n";
 							$addHeader = "From:NITmaker<nitmaker@163.com>\r\nContent-type:text/html\r\n";
 							mail($to, $subjuct, $message, $addHeader);
+							unset($_SESSION['signupTrying']);
 							$_SESSION['verifQuery'] = '1';
 							echo "<meta http-equiv = \"refresh\" content = \"0;url = http://123.206.204.23/nitmaker.cn/reborn/verification.php\">";
 						}
