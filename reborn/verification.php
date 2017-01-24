@@ -8,14 +8,13 @@ if(!isset($_SESSION['verifQuery'])){
 	$to = $_SESSION['userTypedEmail'];
 	$subjuct = '欢迎注册NITmaker';
 	$_SESSION['verifCodeByEmail'] = bin2hex(openssl_random_pseudo_bytes(3));
-	$message = 
-	"
+	$message = "
 	<p><font size = '3' color = 'black'>亲爱的</font><font size = '3' color = 'green'>".$_SESSION['userTypedUserName']."</font></p>
 	<p><font size = '3' color = 'black'>  您正在注册NITmaker，下面是您刚才注册时服务器向您发起的邮箱验证码：</font></p>
 	<p><font size = '6' color = 'blue'>".$_SESSION['verifCodeByEmail']."</font></p>
 	<p><font size = '3'>本站目前处于建设阶段，向注册用户提供SS服务的申请和查询服务。注册完成后请及时登录并填写基本信息。</font></p>
 	<p><font size = '3' color = 'red'>若非邮箱所有者您发起该验证，有扰您忽略本邮件。</font></p>
-	";
+	\n";
 	$addHeader = "From:NITmaker<nitmaker@163.com>\r\nContent-type:text/html\r\n";
 	mail($to, $subjuct, $message, $addHeader);
     echo "<html>
@@ -34,6 +33,6 @@ if(!isset($_SESSION['verifQuery'])){
 						</table>
 					</form>
 				<body>
-	</html>		";
+	</html>";
 }
 ?>
