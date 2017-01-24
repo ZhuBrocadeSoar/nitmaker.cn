@@ -18,7 +18,7 @@ if(!isset($_SESSION['verifQuery'])){
 	</body><html>";
 	$addHeader = "From:NITmaker<nitmaker@163.com>\r\nContent-type:text/html\r\n";
 	mail($to, $subjuct, $message, $addHeader);
-	echo "	<html>
+    echo "
 				<head>
 					<title>NITmaker-注册-邮箱验证</title>
 				</head>
@@ -30,11 +30,10 @@ if(!isset($_SESSION['verifQuery'])){
 				<p><font size = '2' color = 'red'>请确保该邮箱归属于您，若要更改邮箱，请返回注册页面重新注册。</font></p>
 					<form method = 'post' action = ".htmlspecialchars($_SERVER['PHP_SELF']).">
 						<table border = 0>
-							<tr> <th>邮箱验证码</th> <td><input type = 'text' name = 'userTypedVerifCodeByEmail'></td> </tr>
+							<tr> <th>邮箱验证码</th> <td><input type = 'text' name = 'userTypedVerifCodeByEmail'></td> <td><input type = 'submit' value = '验证'></td> </tr>
 						</table>
-						<input type = 'submit' value = '验证'>
 					</form>
 				<body>
-			<html>";
+			";
 }
 ?>
