@@ -1,4 +1,4 @@
-<?php
+<!--php
 session_start();
 if(isset($_SESSION['idtype'])){
     //保持idtype
@@ -7,7 +7,7 @@ if(isset($_SESSION['idtype'])){
 }
 
 if($_SESSION['idtype'] == )
-?>
+-->
 
 
 <html>
