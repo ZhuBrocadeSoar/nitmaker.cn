@@ -1,3 +1,15 @@
+<?php
+session_start();
+if(isset($_SESSION['idtype'])){
+    //保持idtype
+}else{
+    $_SESSION['idtype'] = 'youke';
+}
+
+if($_SESSION['idtype'] == )
+?>
+
+
 <html>
 <head>
 <title>欢迎来到NITmaker</title>
