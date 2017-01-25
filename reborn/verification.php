@@ -15,7 +15,7 @@ if(isset($_POST['submitStatus'])){
         echo "<meta http-equiv = \"refresh\" content = \"2;url = http://123.206.204.23/nitmaker.cn/reborn/login.php\">";
         echo "</head><body>";
         echo "<p><font size = '2' color = 'red'>".$tmp."</font></p>";
-        echo "<p><font size = '3' color = 'black'>2秒后自动转跳到<a href = 'http://123.206.204.23/nitmaker.cn/reborn/login.php'></a></font></p>";
+        echo "<p><font size = '3' color = 'black'>2秒后自动转跳到<a herf = 'http://123.206.204.23/nitmaker.cn/reborn/login.php'></a></font></p>";
         echo "</body></html>";
     }else{
         echo "<p><font size = '2' color = 'red'>验证码错误，注册已中止</font></p>";
