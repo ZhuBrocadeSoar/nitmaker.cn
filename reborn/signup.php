@@ -60,7 +60,7 @@ if(isset($_POST['submitStatus'])){
         echo "<font size = '2' color = 'red'>邮箱地址不合法</font>";
     }else{
         $tmp = $_SESSION['userTypedUserName'];
-        $result = mysql_query("SELECT userName FROM userList WHERE userName = \"$tmp\"", $_SESSION['conOfMysql']);
+        $result = mysql_query("SELECT userName FROM userList WHERE BINARY userName = \"$tmp\"", $_SESSION['conOfMysql']);
         if($row = mysql_fetch_array($result)){
             echo "<font size = '2' color = 'red'>用户名被占用</font>";
         }else{
