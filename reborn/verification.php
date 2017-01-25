@@ -6,13 +6,14 @@ if(isset($_POST['submitStatus'])){
         $_SESSION['conOfMysql'] = mysql_pconnect("localhost", "nitmaker_cn", "nitmaker.cn");
         mysql_select_db("nitmaker_cn", $_SESSION['conOfMysql']);
         $result = mysql_query("INSERT INTO userList (userName, password, email) VALUE (\"".$_SESSION['userTypedUserName']."\", \"".sha1($_SESSION['userTypedPassword'])."\", \"".$_SESSION['userTypedEmail']."\")", $_SESSION['conOfMysql']);
+        echo "INSERT INTO userList (userName, password, email) VALUE (\"".$_SESSION['userTypedUserName']."\", \"".sha1($_SESSION['userTypedPassword'])."\", \"".$_SESSION['userTypedEmail']."\")";
         if(mysql_affected_rows($result)){
             $tmp = "注册成功";
         }else{
             $tmp = "数据库操作失败，请联系管理员17857021969";
         }
         echo "<html><head>";
-        echo "<meta http-equiv = \"refresh\" content = \"2;url = http://123.206.204.23/nitmaker.cn/reborn/login.php\">";
+//        echo "<meta http-equiv = \"refresh\" content = \"2;url = http://123.206.204.23/nitmaker.cn/reborn/login.php\">";
         echo "</head><body>";
         echo "<p><font size = '2' color = 'red'>".$tmp."</font></p>";
         echo "<p><font size = '3' color = 'black'>2秒后自动转跳到<a href = 'http://123.206.204.23/nitmaker.cn/reborn/login.php'></a></font></p>";
