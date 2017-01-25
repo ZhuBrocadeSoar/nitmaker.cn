@@ -2,7 +2,7 @@
 session_start();
 
 if(isset($_POST['submitStatus'])){
-    if(strcasecmp($_POST['userTypedVerifCodeByEmail'], $_SESSION['verifCodeByEmail'])){
+    if(strcasecmp(htmlspecialchars($_POST['userTypedVerifCodeByEmail']), $_SESSION['verifCodeByEmail'])){
         mysql_select_db("nitmaker_cn", $_SESSION['conOfMysql']);
         $result = mysql_query("INSERT INTO userList (userName, password, email) VALUE (\"".$_SESSION['userTypedUserName']."\", \"".sha1($_SESSION['userTypedPassword'])."\", \"".$_SESSION['userTypedEmail']."\")");
         if(mysql_affected_rows($result)){
@@ -46,10 +46,10 @@ echo "<html>
     <p><font size = '3' color = 'black'>将邮件中的验证码填写到下面框中并点击\"验证\"按钮提交该验证码。</font></p>
     <p><font size = '2' color = 'red'>请确保该邮箱归属于您，若要更改邮箱，请返回注册页面重新注册。</font></p>
     <form method = 'post' action = ".htmlspecialchars($_SERVER['PHP_SELF']).">
+    <input type = 'hidden' name = 'submitStatus' value = '1'>
     <table border = 0>
     <tr> <th>邮箱验证码</th> <td><input type = 'text' name = 'userTypedVerifCodeByEmail'></td> <td><input type = 'submit' value = '验证'></td> </tr>
     </table>
-    <input type = 'hidden' name = 'submitStatus' value = '1'>
     </form>
     <body>
     </html>";
