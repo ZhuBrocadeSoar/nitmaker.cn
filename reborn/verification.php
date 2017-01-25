@@ -16,10 +16,10 @@ if(isset($_POST['submitStatus'])){
         echo "<p><font size = '2' color = 'red'>".$tmp."</font></p>";
         echo "<p><font size = '3' color = 'black'>2秒后自动转跳到<a href = 'http://123.206.204.23/nitmaker.cn/reborn/login.php'></a></font></p>";
         echo "</body></html>";
+    }else{
+        echo "<p><font size = '2' color = 'red'>验证码错误，注册已中止</font></p>";
     }
-}
-
-if(!isset($_SESSION['verifQuery'])){
+}else if(!isset($_SESSION['verifQuery'])){
     die("Permition Denied!");
 }else{
     unset($_SESSION['verifQuery']);
