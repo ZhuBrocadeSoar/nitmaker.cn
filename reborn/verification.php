@@ -3,6 +3,7 @@ session_start();
 
 if(isset($_POST['submitStatus'])){
     if(!strcasecmp(htmlspecialchars($_POST['userTypedVerifCodeByEmail']), htmlspecialchars($_SESSION['verifCodeByEmail']))){
+        $_SESSION['conOfMysql'] = mysql_pconnect("localhost", "nitmaker_cn", "nitmaker.cn");
         mysql_select_db("nitmaker_cn", $_SESSION['conOfMysql']);
         $result = mysql_query("INSERT INTO userList (userName, password, email) VALUE (\"".$_SESSION['userTypedUserName']."\", \"".sha1($_SESSION['userTypedPassword'])."\", \"".$_SESSION['userTypedEmail']."\")", $_SESSION['conOfMysql']);
         if(mysql_affected_rows($result)){
