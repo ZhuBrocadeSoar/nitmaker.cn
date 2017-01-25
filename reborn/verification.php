@@ -18,6 +18,8 @@ if(isset($_POST['submitStatus'])){
         echo "</body></html>";
     }else{
         echo "<p><font size = '2' color = 'red'>验证码错误，注册已中止</font></p>";
+        echo "<p>userTypedVerifCodeByEmail:".$_POST['userTypedVerifCodeByEmail']."</p>";
+        echo "<p>verifCodeByEmail:".$_SESSION['verifCodeByEmail']."</p>";
     }
 }else if(!isset($_SESSION['verifQuery'])){
     die("Permition Denied!");
