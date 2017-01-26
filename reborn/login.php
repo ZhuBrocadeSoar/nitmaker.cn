@@ -30,6 +30,8 @@ if(isset($_POST['submitStatus'])){
             if(strcmp($row['password'], sha1($_SESSION['userTypedPassword']))){
                 //用户密码匹配
                 //登陆成功
+                echo "passwordFromMysql:".$row['password']."<br/>";
+                echo "userTypedPassword:".sha1($_SESSION['userTypedPassword'])."<br/>";
                 echo "<p><font size = '2' color = 'red'>登陆成功，2秒后转跳到用户中心</font></p>";
             }else{
                 //用户名和密码不匹配
