@@ -8,11 +8,6 @@ $_SESSION['loginTrying'] = '1';
 $_SESSION['conOfMysql'] = mysql_pconnect("localhost", "nitmaker_cn", "nitmaker.cn");
 mysql_select_db("nitmaker_cn", $_SESSION['conOfMysql']);
 
-if(isset($_POST['submitStatus'])){
-    $_SESSION['userTypedUserName'] = htmlspecialchars($_POST['userTypedUserName']);
-    $_SESSION['userTypedPassword'] = htmlspecialchars($_POST['userTypedPassword']);
-    $_SESSION['userTypedVerifCode'] = htmlspecialchars($_POST['userTypedVerifCode']);
-}
 ?>
 
 <html>
@@ -20,30 +15,37 @@ if(isset($_POST['submitStatus'])){
         <title>NITmaker-登陆</title>
     </head>
     <body>
-        <h1>登陆</h1>
 <?php
-if(strcasecmp($_SESSION['userTypedVerifCode'], $_SESSION['verifCode'])){
-    //验证码匹配
-    $result = mysql_query("SELECT uid,userName,password FROM userList WHERE BINARY userName = \"".$_SESSION['userTypedUserName']."\"", $_SESSION['conOfMysql']);
-    if($row = mysql_fetch_array($result)){
-        //用户名匹配
-        if(strcmp($row['password'], sha1($_SESSION['userTypedPassword']))){
-            //用户密码匹配
-            //登陆成功
-            echo "<p><font size = '2' color = 'red'>登陆成功，2秒后转跳到用户中心</font></p>";
+
+if(isset($_POST['submitStatus'])){
+    $_SESSION['userTypedUserName'] = htmlspecialchars($_POST['userTypedUserName']);
+    $_SESSION['userTypedPassword'] = htmlspecialchars($_POST['userTypedPassword']);
+    $_SESSION['userTypedVerifCode'] = htmlspecialchars($_POST['userTypedVerifCode']);
+
+    if(strcasecmp($_SESSION['userTypedVerifCode'], $_SESSION['verifCode'])){
+        //验证码匹配
+        $result = mysql_query("SELECT uid,userName,password FROM userList WHERE BINARY userName = \"".$_SESSION['userTypedUserName']."\"", $_SESSION['conOfMysql']);
+        if($row = mysql_fetch_array($result)){
+            //用户名匹配
+            if(strcmp($row['password'], sha1($_SESSION['userTypedPassword']))){
+                //用户密码匹配
+                //登陆成功
+                echo "<p><font size = '2' color = 'red'>登陆成功，2秒后转跳到用户中心</font></p>";
+            }else{
+                //用户名和密码不匹配
+                echo "<p><font size = '2' color = 'red'>用户名和密码不匹配</font></p>";
+            }
         }else{
-            //用户名和密码不匹配
-            echo "<p><font size = '2' color = 'red'>用户名和密码不匹配</font></p>";
+            //用户名不存在
+            echo "<p><font size = '2' color = 'red'>用户名不存在</font></p>";
         }
     }else{
-        //用户名不存在
-        echo "<p><font size = '2' color = 'red'>用户名不存在</font></p>";
+        //验证码错误
+        echo "<p><font size = '2' color = 'red'>验证码错误</font></p>";
     }
-}else{
-    //验证码错误
-    echo "<p><font size = '2' color = 'red'>验证码错误</font></p>";
 }
 ?>
+        <h1>登陆</h1>
         <form method = 'post' action = '<?php echo htmlspecialchars($_SERVER[PHP_SELF]);?>'>
             <table border = 0>
                 <tr> <th>用户名</th> <td><input type = 'text' name = 'userTypedUserName' value = '<?php echo $_SESSION['userTypedUserName'];?>'></td> </tr>
