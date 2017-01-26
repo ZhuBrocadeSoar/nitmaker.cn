@@ -9,6 +9,7 @@ $_SESSION['conOfMysql'] = mysql_pconnect("localhost", "nitmaker_cn", "nitmaker.c
 mysql_select_db("nitmaker_cn", $_SESSION['conOfMysql']);
 
 if(isset($_POST['submitStatus'])){
+    //安全接受用户表单
     $_SESSION['userTypedUserName'] = htmlspecialchars($_POST['userTypedUserName']);
     $_SESSION['userTypedPassword'] = htmlspecialchars($_POST['userTypedPassword']);
     $_SESSION['modifiedUserTypedPassword'] = substr(sha1($_SESSION['userTypedPassword']), 0, strlen($_SESSION['userTypedPassword']));
@@ -17,6 +18,7 @@ if(isset($_POST['submitStatus'])){
 }
 ?>
 
+<!--客户端脚本-->
 <script>
 function emptyPassword(){
     document.getElementById('passwordObjuct').value = '';
@@ -50,25 +52,35 @@ function emptyPassword(){
     <head>
 <?php
 if(isset($_POST['submitStatus'])){
+    //表单已提交
     if(strcasecmp($_SESSION['userTypedVerifCode'], $_SESSION['verifCode'])){
+        //图片验证码不匹配
         echo "<font size = '2' color = 'red'>验证码错误</font>";
     }else if(!preg_match("/^[0-9a-zA-Z_]{1,32}$/" , $_SESSION['userTypedUserName'])){
+        //用户名正则表达式不匹配
         echo "<font size = '2' color = 'red'>用户名不合法</font>";
     }else if(!preg_match("/^[0-9a-zA-Z`~!@#$%^&*()\-_=+\[\{\]\}\|\\\;\:\'\"\,\<\.\>\/\?]{6,14}$/", $_SESSION['userTypedPassword'])){
+        //密码正则表达式不匹配
         echo "<font size = '2' color = 'red'>密码不合法</font>";
     }else if(!preg_match("/^[a-z0-9](\.?[a-z0-9_\-]){0,}@[a-z0-9\-]+\.([a-z]{1,6}\.)*[a-z]{2,6}$/", $_SESSION['userTypedEmail'])){
+        //邮箱正则表达式不匹配
         echo "<font size = '2' color = 'red'>邮箱地址不合法</font>";
     }else{
+        //查询数据库，检查用户名占用
         $tmp = $_SESSION['userTypedUserName'];
         $result = mysql_query("SELECT userName FROM userList WHERE BINARY userName = \"$tmp\"", $_SESSION['conOfMysql']);
         if($row = mysql_fetch_array($result)){
+            //数据库查询结果：用户名被占用
             echo "<font size = '2' color = 'red'>用户名被占用</font>";
         }else{
+            //查询数据库，检查邮箱已注册
             $tmp = $_SESSION['userTypedEmail'];
             $result = mysql_query("SELECT email FROM userList WHERE email = \"$tmp\"", $_SESSION['conOfMysql']);
             if($row = mysql_fetch_array($result)){
+                //数据库查询结果：邮箱已注册
                 echo "<font size = '2' color = 'red'>该邮箱已经被注册</font>";
             }else{
+                //通过所有验证，前往邮箱验证码页面
                 unset($_SESSION['signupTrying']);
                 $_SESSION['verifQuery'] = '1';
                 unset($_POST['submitStatus']);

@@ -2,10 +2,14 @@
 session_start();
 
 if(isset($_POST['submitStatus'])){
+    //表单已提交
     if(!strcasecmp(htmlspecialchars($_POST['userTypedVerifCodeByEmail']), htmlspecialchars($_SESSION['verifCodeByEmail']))){
+        //邮箱验证码匹配
         $_SESSION['conOfMysql'] = mysql_pconnect("localhost", "nitmaker_cn", "nitmaker.cn");
         mysql_select_db("nitmaker_cn", $_SESSION['conOfMysql']);
+        //插入用户列表
         $result = mysql_query("INSERT INTO userList (userName, password, email) VALUE (\"".$_SESSION['userTypedUserName']."\", \"".sha1($_SESSION['userTypedPassword'])."\", \"".$_SESSION['userTypedEmail']."\")", $_SESSION['conOfMysql']);
+        //返回成功与否信息
         if($result){
             $tmp = "注册成功";
         }else{
@@ -18,13 +22,16 @@ if(isset($_POST['submitStatus'])){
         echo "<p><font size = '3' color = 'black'>2秒后自动转跳到<a herf = 'http://123.206.204.23/nitmaker.cn/reborn/login.php'></a></font></p>";
         echo "</body></html>";
     }else{
+        //邮箱验证码不匹配
         echo "<p><font size = '2' color = 'red'>验证码错误，注册已中止</font></p>";
         echo "<p>userTypedVerifCodeByEmail:".$_POST['userTypedVerifCodeByEmail']."</p>";
         echo "<p>verifCodeByEmail:".$_SESSION['verifCodeByEmail']."</p>";
     }
 }else if(!isset($_SESSION['verifQuery'])){
+    //非法访问
     die("Permition Denied!");
 }else{
+    //转跳到此页面时
     unset($_SESSION['verifQuery']);
     $to = $_SESSION['userTypedEmail'];
     $subjuct = '欢迎注册NITmaker';
