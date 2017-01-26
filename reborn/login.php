@@ -27,14 +27,12 @@ if(isset($_POST['submitStatus'])){
         $result = mysql_query("SELECT uid,userName,password FROM userList WHERE BINARY userName = \"".$_SESSION['userTypedUserName']."\"", $_SESSION['conOfMysql']);
         if($row = mysql_fetch_array($result)){
             //用户名匹配
-            if(strcmp($row['password'], sha1($_SESSION['userTypedPassword']))){
+            if(!strcmp($row['password'], sha1($_SESSION['userTypedPassword']))){
                 //用户密码匹配
                 //登陆成功
                 echo "<p><font size = '2' color = 'red'>登陆成功，2秒后转跳到用户中心</font></p>";
             }else{
                 //用户名和密码不匹配
-                echo "passwordFromMysql:".$row['password']."<br/>";
-                echo "userTypedPassword:".sha1($_SESSION['userTypedPassword'])."<br/>";
                 echo "<p><font size = '2' color = 'red'>用户名和密码不匹配</font></p>";
             }
         }else{
