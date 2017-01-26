@@ -22,7 +22,7 @@ if(isset($_POST['submitStatus'])){
     $_SESSION['userTypedPassword'] = htmlspecialchars($_POST['userTypedPassword']);
     $_SESSION['userTypedVerifCode'] = htmlspecialchars($_POST['userTypedVerifCode']);
 
-    if(strcasecmp($_SESSION['userTypedVerifCode'], $_SESSION['verifCode'])){
+    if(!strcasecmp($_SESSION['userTypedVerifCode'], $_SESSION['verifCode'])){
         //验证码匹配
         $result = mysql_query("SELECT uid,userName,password FROM userList WHERE BINARY userName = \"".$_SESSION['userTypedUserName']."\"", $_SESSION['conOfMysql']);
         if($row = mysql_fetch_array($result)){
